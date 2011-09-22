@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Text;
+using Dominion.Classes;
 
 namespace Dominion
 {
@@ -17,15 +18,21 @@ namespace Dominion
         public Vector2 position;
         public Texture2D cardImage;
         public bool active;
-        public string imagePath;
-
+        private string name;
+        public int VP;
         
-        public void Initialize(string Name, int Cost, Texture2D image, ContentManager manager)
+        public Card(string Name, int Cost)
         {
-            
+            name = Name;
+            VP = 0;
             position = new Vector2(0, 0);
-            active = false;    
-            cardImage = manager.Load<Texture2D>(imagePath);
+            active = false;
+        }
+
+        protected void LoadTexturue(string path)
+        {
+            var manager = ServiceLocator.ContentManager;
+            cardImage = manager.Load<Texture2D>(path);
         }
 
         public void Update()
@@ -36,6 +43,11 @@ namespace Dominion
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(cardImage, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

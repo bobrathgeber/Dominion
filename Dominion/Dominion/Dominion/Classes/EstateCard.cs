@@ -14,14 +14,11 @@ namespace Dominion.Classes
 {
     class EstateCard : Card
     {
-        private int cost;
-        private int VP;
-
         //CONSTR
-        public void Initialize()
+        public EstateCard()
+            : base("Estate", 2)
         {
-            imagePath = "images/estate";
-            cost = 2;
+            this.LoadTexturue("images/estate");
             VP = 1;
         }
     }

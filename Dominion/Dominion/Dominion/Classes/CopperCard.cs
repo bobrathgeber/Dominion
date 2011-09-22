@@ -14,14 +14,14 @@ namespace Dominion.Classes
 {
     class CopperCard : Card
     {
-        private int cost;
         private int coins;
 
         //CONSTR
-        public void Initialize ()
+        public CopperCard()
+            : base("Copper", 1)
         {
-            imagePath = "images/copper";
-            cost = 0;
+            this.LoadTexturue("images/copper");
+
             coins = 1;
         }
     }

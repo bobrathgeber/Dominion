@@ -76,6 +76,7 @@ namespace Dominion
 
         protected override void Initialize()
         {
+            ServiceLocator.ContentManager = this.Content;
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 800;
             //IsMouseVisible = true;
@@ -162,12 +163,18 @@ namespace Dominion
             spriteBatch.Begin();
             drawBackground();
             
-            //spriteBatch.Draw(backgroundTexture, (new Rectangle(0,0,100,200)), Color.White);
             if (gameState == 2)
             {
-                
+                //draw cards in hand
+                for (int i=0; i<players[currentPlayer-1].hand.Count; i++)
+                {
+
+                    players[currentPlayer-1].hand[i].position = new Vector2(((i*140)+20), 600);
+                    players[currentPlayer-1].hand[i].Draw(spriteBatch); 
+                }
+                             
             }
-            //cardVillage.Draw(spriteBatch);
+
             spriteBatch.Draw(this.mousePointer, this.mousePosition, Color.White);
             
             spriteBatch.End();
@@ -228,8 +235,6 @@ namespace Dominion
             //Name, Cost, Actions, Buys, Coins, VictoryPoints, Effect, image
             
             /*
-            cardTexture = Content.Load<Texture2D>("images/estate");
-            cardEstate.Initialize("Estate", 2, 0, 0, 0, 1, false, cardTexture);
 
             cardTexture = Content.Load<Texture2D>("images/duchy");
             cardDuchy.Initialize("Duchy", 5, 0, 0, 0, 3, false, cardTexture);

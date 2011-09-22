@@ -14,15 +14,14 @@ namespace Dominion.Classes
 {
     class VillageCard : Card
     {
-        private int cost;
         private int actions;
         private int cards;
 
         //CONSTR
-        public void intialize()
+        public VillageCard()
+            : base("VillageCard", 3)
         {
-            imagePath = "images/village";
-            cost = 3;
+            this.LoadTexturue("images/village");
             actions = 2;
             cards = 1;
         }

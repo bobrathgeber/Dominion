@@ -19,12 +19,13 @@ namespace Dominion
         public List<Card> hand;
 
         public string name;
-        public int actions;
-        public int buys;
-        public int coins;
+        protected int actions;
+        protected int buys;
+        protected int coins;
 
-        public void Initialize()
+        public Player()
         {
+            
             deck = new List<Card>();
             discard = new List<Card>();
             hand = new List<Card>();
@@ -71,8 +72,10 @@ namespace Dominion
                 hand.Add(deck[0]);
                 deck.RemoveAt(0);            
             }
-
-
+            foreach (Card c in deck)
+            {
+                Console.WriteLine(c);
+            }
             //removes top card from deck
             //adds card to hand
         }
@@ -80,8 +83,6 @@ namespace Dominion
         public void addCardToHand(Card newCard)
         {
 
-            Random random;
-            random = new Random();
             //removes top card from deck
             //adds card to hand
         }
