@@ -38,3 +38,5 @@ D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\wit
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\woodcutter.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\workshop.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moat.xnb
+D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb
+D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb

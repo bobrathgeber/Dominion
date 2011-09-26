@@ -29,6 +29,7 @@ namespace Dominion
             deck = new List<Card>();
             discard = new List<Card>();
             hand = new List<Card>();
+
         }
 
         public int Actions
@@ -117,6 +118,9 @@ namespace Dominion
                 hand.Remove(c);
             }
             drawCard(5);
+            actions = 1;
+            buys = 1;
+            coins = 0;
         }
 
         public List<Card> getHand()

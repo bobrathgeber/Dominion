@@ -49,6 +49,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="images\coin_sm.png">
+      <Name>coin_sm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="images\MouseCursor.png">
       <Name>MouseCursor</Name>
       <Importer>TextureImporter</Importer>
@@ -215,6 +220,20 @@
   <ItemGroup>
     <Compile Include="images\moat.png">
       <Name>moat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameFont.spritefont">
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\endturnbutton.png">
+      <Name>endturnbutton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

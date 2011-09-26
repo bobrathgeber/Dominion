@@ -32,6 +32,9 @@ namespace Dominion
         List<Player> players;
         int currentPlayer;
 
+        SpriteFont font;
+        Texture2D coinIcon;
+
         /*
         Card cardCopper;
         Card cardSilver;
@@ -104,7 +107,9 @@ namespace Dominion
             mousePointer = Content.Load<Texture2D>("images/MouseCursor");
             screenHeight = GraphicsDevice.PresentationParameters.BackBufferHeight;
             screenWidth = GraphicsDevice.PresentationParameters.BackBufferWidth;
-            backgroundTexture = Content.Load<Texture2D>("images/background800x800");            
+            backgroundTexture = Content.Load<Texture2D>("images/background800x800");
+            font = Content.Load<SpriteFont>("gameFont");
+            coinIcon = Content.Load<Texture2D>("images/coin_sm");
 
         }
 
@@ -172,6 +177,13 @@ namespace Dominion
                     players[currentPlayer-1].hand[i].position = new Vector2(((i*140)+20), 600);
                     players[currentPlayer-1].hand[i].Draw(spriteBatch); 
                 }
+
+
+                // Draw the infobar
+                spriteBatch.Draw(coinIcon, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+5, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, ": " + players[currentPlayer-1].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "actions: " + players[currentPlayer-1].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "buys: " + players[currentPlayer-1].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                              
             }
 
@@ -225,7 +237,7 @@ namespace Dominion
             foreach (Player p in players)
             {
                 p.shuffleDeck();
-                p.drawCard(5);
+                p.endTurn();
             }
             currentPlayer = 1;
         }
