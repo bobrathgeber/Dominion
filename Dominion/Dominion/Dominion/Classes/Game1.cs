@@ -34,42 +34,9 @@ namespace Dominion
 
         SpriteFont font;
         Texture2D coinIcon;
+        Button endTurnButton;
+        EndTurnAction bAction;
 
-        /*
-        Card cardCopper;
-        Card cardSilver;
-        Card cardGold;
-
-        Card cardEstate;
-        Card cardDuchy;
-        Card cardProvince;
-
-        Card cardCellar;
-        Card cardChapel;
-        Card cardMoat;
-        Card cardChancellor;
-        Card cardVillage;
-        Card cardWoodcutter;
-        Card cardWorkshop;
-        Card cardBureaucrat;
-        Card cardFeast;
-        Card cardGardens;
-        Card cardMilitia;
-        Card cardMoneylender;
-        Card cardRemodel;
-        Card cardSmithy;
-        Card cardSpy;
-        Card cardThief;
-        Card cardThroneRoom;
-        Card cardCouncilRoom;
-        Card cardFestival;
-        Card cardLaboratory;
-        Card cardLibrary;
-        Card cardMarket;
-        Card cardMine;
-        Card cardWitch;
-        Card cardAdventurer;
-        */
 
         public Game1()
         {
@@ -87,6 +54,7 @@ namespace Dominion
             graphics.ApplyChanges();
             Window.Title = "Dominion";
             gameState = 1;
+            
             
 
             //test player
@@ -147,8 +115,13 @@ namespace Dominion
             }
 
             // TODO: Add your update logic here
-           
 
+            bAction = new EndTurnAction();
+            Texture2D texture;
+            texture = Content.Load<Texture2D>("images/endturnbutton");
+            endTurnButton = new Button(texture, font, spriteBatch, bAction);
+            endTurnButton.Location(550, 20);
+            endTurnButton.Update();
             UpdateMouse();
             base.Update(gameTime);
         }
@@ -184,6 +157,7 @@ namespace Dominion
                 spriteBatch.DrawString(font, ": " + players[currentPlayer-1].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 spriteBatch.DrawString(font, "actions: " + players[currentPlayer-1].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 spriteBatch.DrawString(font, "buys: " + players[currentPlayer-1].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                endTurnButton.Draw();
                              
             }
 
@@ -239,7 +213,10 @@ namespace Dominion
                 p.shuffleDeck();
                 p.endTurn();
             }
+            
             currentPlayer = 1;
+            bAction.player = (players[currentPlayer - 1]);
+            
         }
 
         public void loadCards()

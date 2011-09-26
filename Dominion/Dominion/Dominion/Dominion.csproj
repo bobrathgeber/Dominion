@@ -109,12 +109,15 @@
   <ItemGroup>
     <Compile Include="Classes\ActionCard.cs" />
     <Compile Include="Classes\AttackCard.cs" />
+    <Compile Include="Classes\Button.cs" />
     <Compile Include="Classes\Card.cs" />
     <Compile Include="Classes\Class1.cs" />
     <Compile Include="Classes\Class2.cs" />
     <Compile Include="Classes\CopperCard.cs" />
+    <Compile Include="Classes\EndTurnAction.cs" />
     <Compile Include="Classes\EstateCard.cs" />
     <Compile Include="Classes\GoldCard.cs" />
+    <Compile Include="Classes\IButtonAction.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Services.cs" />
     <Compile Include="Classes\SilverCard.cs" />

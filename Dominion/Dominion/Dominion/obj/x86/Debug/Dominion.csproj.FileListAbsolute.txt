@@ -40,3 +40,4 @@ D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\wor
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moat.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb
+D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb

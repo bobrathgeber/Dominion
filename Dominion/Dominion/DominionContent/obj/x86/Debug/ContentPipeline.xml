@@ -325,6 +325,15 @@
       <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb</Output>
       <Time>2011-09-25T12:34:41.2968752-04:00</Time>
     </Item>
+    <Item>
+      <Source>images\endturnbutton.png</Source>
+      <Name>images\endturnbutton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb</Output>
+      <Time>2011-09-25T13:16:12.6493998-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
