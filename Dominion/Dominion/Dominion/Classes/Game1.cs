@@ -36,6 +36,7 @@ namespace Dominion
         Texture2D coinIcon;
         Button endTurnButton;
         EndTurnAction bAction;
+        Texture2D endTurnTexture;
 
 
         public Game1()
@@ -78,6 +79,10 @@ namespace Dominion
             backgroundTexture = Content.Load<Texture2D>("images/background800x800");
             font = Content.Load<SpriteFont>("gameFont");
             coinIcon = Content.Load<Texture2D>("images/coin_sm");
+            bAction = new EndTurnAction();
+            
+            endTurnTexture = Content.Load<Texture2D>("images/endturnbutton");
+            endTurnButton = new Button(endTurnTexture, font, spriteBatch, bAction);
 
         }
 
@@ -116,10 +121,9 @@ namespace Dominion
 
             // TODO: Add your update logic here
 
-            bAction = new EndTurnAction();
-            Texture2D texture;
-            texture = Content.Load<Texture2D>("images/endturnbutton");
-            endTurnButton = new Button(texture, font, spriteBatch, bAction);
+            
+            
+            
             endTurnButton.Location(550, 20);
             endTurnButton.Update();
             UpdateMouse();

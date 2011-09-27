@@ -61,24 +61,23 @@ namespace Dominion
             {
 
                 if (deck.Count == 0)
-                {
-                    for (int i = discard.Count; i > 0; i--)
+                {                  
+                    for (int i = 0; i<discard.Count; i++)
                     {
-                        deck.Add(discard[i]);
-                        discard.RemoveAt(i);
+                        deck.Add(discard[i]);                      
                     }
+
+                    discard.Clear();
                     shuffleDeck();
                 }
                 
                 hand.Add(deck[0]);
                 deck.RemoveAt(0);            
             }
-            foreach (Card c in deck)
-            {
-                Console.WriteLine(c);
-            }
-            //removes top card from deck
-            //adds card to hand
+            //foreach (Card c in deck)
+            //{
+            //    Console.WriteLine(c);
+            //}
         }
 
         public void addCardToHand(Card newCard)
@@ -112,7 +111,7 @@ namespace Dominion
 
         public void endTurn()
         {
-            foreach (Card c in hand)
+            foreach (Card c in hand.ToList())
             {
                 discard.Add(c);
                 hand.Remove(c);

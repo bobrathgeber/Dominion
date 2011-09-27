@@ -73,12 +73,14 @@ namespace Dominion.Classes
 
             }
             else
-           {
+            {
                clicked = false;
-           }
+            }
 
-            //Text = "";
+           
             oldMouse = mouse;
+
+
         }
 
         public void Draw()
@@ -91,6 +93,7 @@ namespace Dominion.Classes
                 spriteBatch.Draw(image,
                     location,
                     Color.Silver);
+               
             }
             else
             {
