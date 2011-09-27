@@ -74,10 +74,6 @@ namespace Dominion
                 hand.Add(deck[0]);
                 deck.RemoveAt(0);            
             }
-            //foreach (Card c in deck)
-            //{
-            //    Console.WriteLine(c);
-            //}
         }
 
         public void addCardToHand(Card newCard)
