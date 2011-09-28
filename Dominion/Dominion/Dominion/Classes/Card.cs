@@ -15,17 +15,19 @@ namespace Dominion
 {
     public abstract class Card
     {
-        public Vector2 position;
+        public Rectangle position;
         public Texture2D cardImage;
         public bool active;
         private string name;
         public int VP;
+
+        MouseState mouse;
+        MouseState oldMouse;
         
         public Card(string Name, int Cost)
         {
             name = Name;
             VP = 0;
-            position = new Vector2(0, 0);
             active = false;
         }
 
@@ -33,21 +35,56 @@ namespace Dominion
         {
             var manager = ServiceLocator.ContentManager;
             cardImage = manager.Load<Texture2D>(path);
+            position = new Rectangle(0, 0, cardImage.Width, cardImage.Height);
         }
 
         public void Update()
         {
+            mouse = Mouse.GetState();
 
+            if (mouse.LeftButton == ButtonState.Released && oldMouse.LeftButton == ButtonState.Pressed)
+            {
+                if (position.Contains(new Point(mouse.X, mouse.Y)))
+                {
+                    play();
+                    //clicked = true;
+                }
+
+            }
+            else
+            {
+                //clicked = false;
+            }
+
+
+            oldMouse = mouse;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(cardImage, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            if (position.Contains(new Point(mouse.X, mouse.Y)))
+            {
+                spriteBatch.Draw(cardImage,
+                    position,
+                    Color.Silver);
+                Console.Write("done");
+
+            }
+            else
+            {
+                spriteBatch.Draw(cardImage, position, Color.White);
+            }
+            
         }
 
         public override string ToString()
         {
             return name;
+        }
+
+        public virtual void play()
+        {
+            Console.Write("done");
         }
     }
 }

@@ -151,7 +151,8 @@ namespace Dominion
                 for (int i=0; i<players[currentPlayer-1].hand.Count; i++)
                 {
 
-                    players[currentPlayer-1].hand[i].position = new Vector2(((i*140)+20), 600);
+                    players[currentPlayer - 1].hand[i].position.X = ((i * 140) + 20);
+                    players[currentPlayer - 1].hand[i].position.Y = 600;
                     players[currentPlayer-1].hand[i].Draw(spriteBatch); 
                 }
 
@@ -198,7 +199,7 @@ namespace Dominion
                 Player p = new Player();
                 for (int j = 0; j < 7; j++)
                 {
-                    CopperCard cc = new CopperCard();
+                    CopperCard cc = new CopperCard(p);
                     p.addCardToDiscard(cc);
                 }
 

@@ -18,7 +18,7 @@ namespace Dominion.Classes
         private IButtonAction _action;
         Texture2D image;
         SpriteFont font;
-        Rectangle location;
+        Rectangle position;
         string text;
         Vector2 textLocation;
         SpriteBatch spriteBatch;
@@ -32,7 +32,7 @@ namespace Dominion.Classes
             _action = action;
             image = texture;
             this.font = font;
-            location = new Rectangle(0, 0, image.Width, image.Height);
+            position = new Rectangle(0, 0, image.Width, image.Height);
             spriteBatch = sBatch;
         }
 
@@ -44,15 +44,15 @@ namespace Dominion.Classes
                 text = value;
                 Vector2 size = font.MeasureString(text);
                 textLocation = new Vector2();
-                textLocation.Y = location.Y + ((image.Height / 2) - (size.Y / 2));
-                textLocation.X = location.X + ((image.Width / 2) - (size.X / 2));
+                textLocation.Y = position.Y + ((image.Height / 2) - (size.Y / 2));
+                textLocation.X = position.X + ((image.Width / 2) - (size.X / 2));
             }
         }
 
         public void Location(int x, int y)
         {
-            location.X = x;
-            location.Y = y;
+            position.X = x;
+            position.Y = y;
         }
 
         public void Click()
@@ -66,7 +66,7 @@ namespace Dominion.Classes
 
             if (mouse.LeftButton == ButtonState.Released && oldMouse.LeftButton == ButtonState.Pressed)
             {
-                if (location.Contains(new Point(mouse.X, mouse.Y)))
+                if (position.Contains(new Point(mouse.X, mouse.Y)))
                 {
                     clicked = true;
                 }
@@ -76,11 +76,7 @@ namespace Dominion.Classes
             {
                clicked = false;
             }
-
-           
             oldMouse = mouse;
-
-
         }
 
         public void Draw()
@@ -88,17 +84,17 @@ namespace Dominion.Classes
             //used to say spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
             //spriteBatch.Begin();
 
-            if (location.Contains(new Point(mouse.X, mouse.Y)))
+            if (position.Contains(new Point(mouse.X, mouse.Y)))
             {
                 spriteBatch.Draw(image,
-                    location,
+                    position,
                     Color.Silver);
                
             }
             else
             {
                 spriteBatch.Draw(image,
-                    location,
+                    position,
                     Color.White);
             }
 
