@@ -14,14 +14,29 @@ namespace Dominion.Classes
 {
     class GoldCard : Card
     {
-        private int coins;
-
         //CONSTR
-        public GoldCard()
-            : base("Gold", 6)
+        public GoldCard(Player Owner)
+            : base("Gold", 6, Owner)
         {
-            this.LoadTexturue("images/gold");
-            coins = 3;
+            this.LoadTexture("images/gold");
+            owner = Owner;
+        }
+
+        public override Card Copy(Player o)
+        {
+            GoldCard c = new GoldCard(o);
+            return c;
+        }
+
+        public override void play()
+        {
+            owner.Coins += 3;
+            owner.moveCard(this, owner.hand, owner.discard);
+        }
+
+        public void setOwner(Player p)
+        {
+            owner = p;
         }
     }
 }

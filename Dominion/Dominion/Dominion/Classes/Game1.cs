@@ -12,7 +12,7 @@ using System.Text;
 using Dominion.Classes;
 
 namespace Dominion
-{
+{    
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
@@ -20,7 +20,7 @@ namespace Dominion
         int screenHeight;
         SpriteBatch spriteBatch;
         int gameState;
-
+ 
         Texture2D mousePointer;
         Vector2 mousePosition;
         MouseState mouseState;
@@ -29,8 +29,10 @@ namespace Dominion
         KeyboardState previousKeyboardState;
 
         Texture2D backgroundTexture;
+        Store store;
         List<Player> players;
-        int currentPlayer;
+        public int currentPlayer;
+        List<Button> StoreButtons;
 
         SpriteFont font;
         Texture2D coinIcon;
@@ -83,6 +85,7 @@ namespace Dominion
             
             endTurnTexture = Content.Load<Texture2D>("images/endturnbutton");
             endTurnButton = new Button(endTurnTexture, font, spriteBatch, bAction);
+            endTurnButton.Location(550, 20);
 
         }
 
@@ -114,25 +117,53 @@ namespace Dominion
                 }
             }
             else if (gameState == 2) // game running
+            {                
+                updateStoreStock();
+                updateCards();
+                updateButtons(players[currentPlayer]);
+                endTurnButton.Update();
+                checkEndGameConditions();
+            }
+            else if (gameState == 3)
             {
                 
-       
             }
 
             // TODO: Add your update logic here
 
             
-            
-            
-            endTurnButton.Location(550, 20);
-            endTurnButton.Update();
             UpdateMouse();
             base.Update(gameTime);
         }
 
-        private void drawCardsInHand()
+        private void drawResults()
+        {            
+            int deckSize = players[currentPlayer].getTotalCards();
+            int totalVP = players[currentPlayer].getVP();
+            string text = "Player " + currentPlayer.ToString() + " : You won! You have " + deckSize.ToString() + 
+                " cards in your deck and " + totalVP.ToString() + " VICTORY POINTS!";
+            Vector2 size = font.MeasureString(text);
+            Vector2 textLocation = new Vector2();
+            textLocation.Y = (screenHeight / 2) - (size.Y / 2);
+            textLocation.X = (screenWidth / 2) - ((size.X / 2));
+            spriteBatch.DrawString(font, text, textLocation, Color.White);
+        }
+
+        private void checkEndGameConditions()
         {
-            players[(currentPlayer - 1)].getHand();
+            if (store.checkEndGame())
+            {
+                gameState = 3;
+            }
+        }
+
+        private void updateCards()
+        {
+            int count = players[currentPlayer].hand.Count-1;
+            for (int i = count; i >= 0; i--)
+            {
+                players[currentPlayer].hand[i].Update();                
+            }
         }
 
         /// <summary>
@@ -148,22 +179,27 @@ namespace Dominion
             if (gameState == 2)
             {
                 //draw cards in hand
-                for (int i=0; i<players[currentPlayer-1].hand.Count; i++)
+                for (int i=0; i<players[currentPlayer].hand.Count; i++)
                 {
-
-                    players[currentPlayer - 1].hand[i].position.X = ((i * 140) + 20);
-                    players[currentPlayer - 1].hand[i].position.Y = 600;
-                    players[currentPlayer-1].hand[i].Draw(spriteBatch); 
+                    players[currentPlayer].hand[i].position.X = ((i * 140) + 20);
+                    players[currentPlayer].hand[i].position.Y = 600;
+                    players[currentPlayer].hand[i].Draw(spriteBatch); 
                 }
+                
 
 
                 // Draw the infobar
                 spriteBatch.Draw(coinIcon, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+5, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, ": " + players[currentPlayer-1].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, "actions: " + players[currentPlayer-1].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, "buys: " + players[currentPlayer-1].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, ": " + players[currentPlayer].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "actions: " + players[currentPlayer].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "buys: " + players[currentPlayer].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 endTurnButton.Draw();
+                drawButtons();
                              
+            }
+            else if (gameState == 3)
+            {
+                drawResults();
             }
 
             spriteBatch.Draw(this.mousePointer, this.mousePosition, Color.White);
@@ -173,7 +209,6 @@ namespace Dominion
 
             base.Draw(gameTime);
         }
-
 
         private void drawBackground()
         {
@@ -191,22 +226,27 @@ namespace Dominion
 
         public void startGame()
         {
-            int PlayerCount = 1; //temp
+            int PlayerCount = 1; //TEMPORARY!!*****
+            store = new Store();
+
 
             //adds players to game
             for (int i = 0; i < PlayerCount; i++)
             {
                 Player p = new Player();
+                p.Buys = 10;
+                p.Coins = 6;
                 for (int j = 0; j < 7; j++)
                 {
                     CopperCard cc = new CopperCard(p);
-                    p.addCardToDiscard(cc);
+                    store.buyCard(p, cc);
                 }
 
                 for (int k = 0; k < 3; k++)
                 {
-                    EstateCard ec = new EstateCard();
-                    p.addCardToDiscard(ec);
+
+                    EstateCard ec = new EstateCard(p);
+                    store.buyCard(p, ec);                    
                 }
 
                 p.name = ("Player " + (i+1).ToString());
@@ -217,55 +257,60 @@ namespace Dominion
             {
                 p.shuffleDeck();
                 p.endTurn();
-            }
-            
-            currentPlayer = 1;
-            bAction.player = (players[currentPlayer - 1]);
-            
+            }            
+            currentPlayer = 0;
+            bAction.player = (players[currentPlayer]);
+            GenerateStoreButtons();
         }
 
-        public void loadCards()
+        public void GenerateStoreButtons()
         {
-            //Name, Cost, Actions, Buys, Coins, VictoryPoints, Effect, image
             
-            /*
+            Texture2D buttonTexture;
+            StoreButtons = new List<Button>();
+            for (int i = 0; i < store.stock.Count; i++)
+            {
+                BuyCardAction bAction = new BuyCardAction();
+                bAction.store = store;
+                bAction.player = players[currentPlayer];
+                bAction.setCard((store.stock[i].Copy(players[currentPlayer])));
+                
+                buttonTexture = store.stock[i].cardImage;
+                Button cardButton = new Button(buttonTexture, font, spriteBatch, bAction);
+                if (i > 8)
+                {
+                    cardButton.Location((40 + ((i-9) * buttonTexture.Width / 2)), 250);
+                }
+                else
+                {
+                    cardButton.Location((40 + (i * buttonTexture.Width / 2)), 100);
+                }
+                cardButton.Text = store.stockAmount[i].ToString();
+                cardButton.Scale(buttonTexture.Width / 2, buttonTexture.Height / 2);
+                StoreButtons.Add(cardButton);
+            }
+        }
+        public void updateStoreStock()
+        {
+            for (int i = 0; i < StoreButtons.Count; i++)
+            {
+                StoreButtons[i].Text = store.stockAmount[i].ToString();
+            }
+        }
 
-            cardTexture = Content.Load<Texture2D>("images/duchy");
-            cardDuchy.Initialize("Duchy", 5, 0, 0, 0, 3, false, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/province");
-            cardProvince.Initialize("Province", 8, 0, 0, 0, 6, false, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/village");
-            cardVillage.Initialize("Village", 3, 2, 0, 0, 0, false, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/cellar");
-            cardCellar.Initialize("Cellar", 2, 1, 0, 0, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/market");
-            cardMarket.Initialize("Market", 5, 1, 1, 1, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/militia");
-            cardMilitia.Initialize("Militia", 4, 0, 0, 2, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/Mine");
-            cardMine.Initialize("Mine", 5, 0, 0, 0, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/remodel");
-            cardRemodel.Initialize("Remodel", 4, 0, 0, 0, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/smithy");
-            cardSmithy.Initialize("Smithy", 4, 0, 0, 0, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/woodcutter");
-            cardWoodcutter.Initialize("Wood Cutter", 3, 0, 1, 2, 0, false, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/workshop");
-            cardWorkshop.Initialize("Workshop", 3, 0, 0, 0, 0, true, cardTexture);
-
-            cardTexture = Content.Load<Texture2D>("images/moat");
-            cardMoat.Initialize("Moat", 2, 0, 0, 0, 0, true, cardTexture);
-            */
+        public void drawButtons()
+        {
+            for (int i = 0; i < StoreButtons.Count; i++)
+            {
+                StoreButtons[i].Draw();
+            }
+        }
+        public void updateButtons(Player p)
+        {
+            for (int i = 0; i < StoreButtons.Count; i++)
+            {
+                StoreButtons[i].Update();
+            }
         }
     }
 }

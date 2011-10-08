@@ -1,4 +1,5 @@
 Content\images\background800x800.xnb
+Content\images\coin_sm.xnb
 Content\images\MouseCursor.xnb
 Content\images\adventurer.xnb
 Content\images\bureaucrat.xnb
@@ -32,6 +33,5 @@ Content\images\witch.xnb
 Content\images\woodcutter.xnb
 Content\images\workshop.xnb
 Content\images\moat.xnb
-Content\gameFont.xnb
-Content\images\coin_sm.xnb
 Content\images\endturnbutton.xnb
+Content\gameFont.xnb

@@ -12,27 +12,29 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class MilitiaCard : Card
     {
-
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public MilitiaCard(Player Owner)
+            : base("Militia", 3, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
-            owner = Owner;
+            this.LoadTexture("images/militia");
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            MilitiaCard c = new MilitiaCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+            if (owner.Actions > 0)
+            {
+                owner.Actions -= 1;
+                owner.Coins += 2;
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }

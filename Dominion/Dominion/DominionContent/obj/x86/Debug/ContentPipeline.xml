@@ -7,314 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\background800x800.xnb</Output>
-      <Time>2011-09-09T20:55:52.8633487-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\MouseCursor.png</Source>
-      <Name>images\MouseCursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\MouseCursor.xnb</Output>
-      <Time>2011-09-09T23:08:14.9888667-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\adventurer.png</Source>
-      <Name>images\adventurer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\adventurer.xnb</Output>
-      <Time>2011-09-10T00:18:44.6867916-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\bureaucrat.png</Source>
-      <Name>images\bureaucrat</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\bureaucrat.xnb</Output>
-      <Time>2011-09-10T00:19:02.2597967-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\cellar.png</Source>
-      <Name>images\cellar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\cellar.xnb</Output>
-      <Time>2011-09-10T00:19:16.3586031-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\chancellor.png</Source>
-      <Name>images\chancellor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chancellor.xnb</Output>
-      <Time>2011-09-10T00:19:30.3244019-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\chapel.png</Source>
-      <Name>images\chapel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chapel.xnb</Output>
-      <Time>2011-09-10T00:17:37.7679641-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\copper.png</Source>
-      <Name>images\copper</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\copper.xnb</Output>
-      <Time>2011-09-09T23:51:39.0628112-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\councilroom.png</Source>
-      <Name>images\councilroom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\councilroom.xnb</Output>
-      <Time>2011-09-10T00:17:56.9920636-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\curse.png</Source>
-      <Name>images\curse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\curse.xnb</Output>
-      <Time>2011-09-10T00:20:56.8243494-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\duchy.png</Source>
-      <Name>images\duchy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\duchy.xnb</Output>
-      <Time>2011-09-10T00:20:00.3221177-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\estate.png</Source>
-      <Name>images\estate</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\estate.xnb</Output>
-      <Time>2011-09-10T00:19:47.5253858-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\feast.png</Source>
-      <Name>images\feast</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\feast.xnb</Output>
-      <Time>2011-09-10T00:18:09.7887955-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\festival.png</Source>
-      <Name>images\festival</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\festival.xnb</Output>
-      <Time>2011-09-10T00:18:24.1936194-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\garden.png</Source>
-      <Name>images\garden</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\garden.xnb</Output>
-      <Time>2011-09-10T00:15:58.845306-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\gold.png</Source>
-      <Name>images\gold</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\gold.xnb</Output>
-      <Time>2011-09-09T23:50:41.5405211-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\laboratory.png</Source>
-      <Name>images\laboratory</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\laboratory.xnb</Output>
-      <Time>2011-09-10T00:16:15.2582448-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\library.png</Source>
-      <Name>images\library</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\library.xnb</Output>
-      <Time>2011-09-10T00:16:33.8263068-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\market.png</Source>
-      <Name>images\market</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\market.xnb</Output>
-      <Time>2011-09-10T00:17:13.2695628-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\militia.png</Source>
-      <Name>images\militia</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\militia.xnb</Output>
-      <Time>2011-09-10T00:14:46.2871559-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\Mine.png</Source>
-      <Name>images\Mine</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\Mine.xnb</Output>
-      <Time>2011-09-10T00:15:36.047002-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\province.png</Source>
-      <Name>images\province</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\province.xnb</Output>
-      <Time>2011-09-10T00:20:13.8568918-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\remodel.png</Source>
-      <Name>images\remodel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\remodel.xnb</Output>
-      <Time>2011-09-09T23:54:39.3351222-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\silver.png</Source>
-      <Name>images\silver</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\silver.xnb</Output>
-      <Time>2011-09-09T23:51:10.6251847-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\smithy.png</Source>
-      <Name>images\smithy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\smithy.xnb</Output>
-      <Time>2011-09-09T23:54:56.2530899-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\spy.png</Source>
-      <Name>images\spy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\spy.xnb</Output>
-      <Time>2011-09-09T23:55:11.0899385-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\thief.png</Source>
-      <Name>images\thief</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\thief.xnb</Output>
-      <Time>2011-09-09T23:52:20.1561616-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\throneroom.png</Source>
-      <Name>images\throneroom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\throneroom.xnb</Output>
-      <Time>2011-09-09T23:52:40.0603001-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\trash.png</Source>
-      <Name>images\trash</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\trash.xnb</Output>
-      <Time>2011-09-10T00:21:22.6248251-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\village.png</Source>
-      <Name>images\village</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\village.xnb</Output>
-      <Time>2011-09-09T23:53:00.2714561-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\witch.png</Source>
-      <Name>images\witch</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\witch.xnb</Output>
-      <Time>2011-09-09T23:53:35.045445-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\woodcutter.png</Source>
-      <Name>images\woodcutter</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\woodcutter.xnb</Output>
-      <Time>2011-09-09T23:53:48.8202329-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\workshop.png</Source>
-      <Name>images\workshop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\workshop.xnb</Output>
-      <Time>2011-09-09T23:54:10.6314804-04:00</Time>
-    </Item>
-    <Item>
-      <Source>images\moat.png</Source>
-      <Name>images\moat</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moat.xnb</Output>
-      <Time>2011-09-10T00:35:52.9676059-04:00</Time>
-    </Item>
-    <Item>
-      <Source>gameFont.spritefont</Source>
-      <Name>gameFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb</Output>
-      <Time>2011-09-25T12:03:56.4013806-04:00</Time>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\background800x800.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
     </Item>
     <Item>
       <Source>images\coin_sm.png</Source>
@@ -322,8 +16,305 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb</Output>
-      <Time>2011-09-25T12:34:41.2968752-04:00</Time>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\MouseCursor.png</Source>
+      <Name>images\MouseCursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\MouseCursor.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\adventurer.png</Source>
+      <Name>images\adventurer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\adventurer.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\bureaucrat.png</Source>
+      <Name>images\bureaucrat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\bureaucrat.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\cellar.png</Source>
+      <Name>images\cellar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\cellar.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\chancellor.png</Source>
+      <Name>images\chancellor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chancellor.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\chapel.png</Source>
+      <Name>images\chapel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chapel.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\copper.png</Source>
+      <Name>images\copper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\copper.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\councilroom.png</Source>
+      <Name>images\councilroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\councilroom.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\curse.png</Source>
+      <Name>images\curse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\curse.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\duchy.png</Source>
+      <Name>images\duchy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\duchy.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\estate.png</Source>
+      <Name>images\estate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\estate.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\feast.png</Source>
+      <Name>images\feast</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\feast.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\festival.png</Source>
+      <Name>images\festival</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\festival.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\garden.png</Source>
+      <Name>images\garden</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\garden.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\gold.png</Source>
+      <Name>images\gold</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\gold.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\laboratory.png</Source>
+      <Name>images\laboratory</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\laboratory.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\library.png</Source>
+      <Name>images\library</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\library.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\market.png</Source>
+      <Name>images\market</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\market.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\militia.png</Source>
+      <Name>images\militia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\militia.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\Mine.png</Source>
+      <Name>images\Mine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\Mine.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\province.png</Source>
+      <Name>images\province</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\province.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\remodel.png</Source>
+      <Name>images\remodel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\remodel.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\silver.png</Source>
+      <Name>images\silver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\silver.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\smithy.png</Source>
+      <Name>images\smithy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\smithy.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\spy.png</Source>
+      <Name>images\spy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\spy.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\thief.png</Source>
+      <Name>images\thief</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\thief.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\throneroom.png</Source>
+      <Name>images\throneroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\throneroom.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\trash.png</Source>
+      <Name>images\trash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\trash.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\village.png</Source>
+      <Name>images\village</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\village.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\witch.png</Source>
+      <Name>images\witch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\witch.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\woodcutter.png</Source>
+      <Name>images\woodcutter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\woodcutter.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\workshop.png</Source>
+      <Name>images\workshop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\workshop.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>images\moat.png</Source>
+      <Name>images\moat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moat.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
     </Item>
     <Item>
       <Source>images\endturnbutton.png</Source>
@@ -331,48 +322,57 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb</Output>
-      <Time>2011-09-25T13:16:12.6493998-04:00</Time>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>gameFont.spritefont</Source>
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2011-09-28T15:07:00-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\Projects\Dominion\Dominion\Dominion\DominionContent\</RootDirectory>
-      <LoggerRootDirectory>D:\Projects\Dominion\Dominion\Dominion\Dominion\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Projects\Dominion\Dominion\Dominion\DominionContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\DominionContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\DominionContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-08-08T22:01:16.0409338-04:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-09-28T20:38:36.046875-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

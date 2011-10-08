@@ -10,4 +10,5 @@ namespace Dominion.Classes
     {
         public static ContentManager ContentManager;
     }
+
 }

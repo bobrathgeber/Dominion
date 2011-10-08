@@ -12,27 +12,30 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class WoodcutterCard : Card
     {
-
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public WoodcutterCard(Player Owner)
+            : base("Woodcutter", 3, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
-            owner = Owner;
+            this.LoadTexture("images/woodcutter");
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            WoodcutterCard c = new WoodcutterCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+            if (owner.Actions > 0)
+            {
+                owner.Actions -= 1;
+                owner.Buys += 1;
+                owner.Coins += 2;
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }

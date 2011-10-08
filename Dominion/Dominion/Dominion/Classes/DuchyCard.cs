@@ -12,27 +12,26 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class DuchyCard : Card
     {
-
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public DuchyCard(Player Owner)
+            : base("Duchy", 5, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
+            this.LoadTexture("images/duchy");
+            _VP = 3;
             owner = Owner;
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            DuchyCard c = new DuchyCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+
         }
     }
 }

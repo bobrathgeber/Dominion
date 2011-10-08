@@ -15,27 +15,56 @@ namespace Dominion
 {
     public abstract class Card
     {
+        public bool isSelected;
         public Rectangle position;
         public Texture2D cardImage;
-        public bool active;
-        private string name;
-        public int VP;
+        protected Player owner;
+
+        protected int cost;
+        protected string name;
+        protected int _VP;
 
         MouseState mouse;
         MouseState oldMouse;
         
-        public Card(string Name, int Cost)
+        public Card(string n, int c, Player o)
         {
-            name = Name;
-            VP = 0;
-            active = false;
+            Name = n;
+            Cost = c;
+            owner = o;
+            isSelected = false;
         }
 
-        protected void LoadTexturue(string path)
+        public int Cost
+        {
+            set { cost = value; }
+            get { return cost; }
+        }
+
+        public String Name
+        {
+            set { name = value; }
+            get { return name; }
+        }
+
+        public int VP
+        {
+            get { if (_VP == null) { return 0; } else { return _VP; } }
+        }
+
+        protected void LoadTexture(string path)
         {
             var manager = ServiceLocator.ContentManager;
             cardImage = manager.Load<Texture2D>(path);
-            position = new Rectangle(0, 0, cardImage.Width, cardImage.Height);
+            //no owner means its a store image
+            if (owner == null)
+            {
+                position = new Rectangle(0, 0, cardImage.Width / 2, cardImage.Height / 2);
+            }
+            else
+            {
+                position = new Rectangle(0, 0, cardImage.Width, cardImage.Height);
+            }
         }
 
         public void Update()
@@ -46,17 +75,23 @@ namespace Dominion
             {
                 if (position.Contains(new Point(mouse.X, mouse.Y)))
                 {
-                    play();
-                    //clicked = true;
+                    if (owner != null)
+                    {
+                        if (owner.canSelectHand)
+                        {
+
+                        }
+                        else if (owner.canSelectStore)
+                        {
+
+                        }
+                        else
+                        {
+                            play();
+                        }
+                    }
                 }
-
             }
-            else
-            {
-                //clicked = false;
-            }
-
-
             oldMouse = mouse;
         }
 
@@ -67,8 +102,12 @@ namespace Dominion
                 spriteBatch.Draw(cardImage,
                     position,
                     Color.Silver);
-                Console.Write("done");
-
+            }
+            else if (isSelected)
+            {
+                spriteBatch.Draw(cardImage,
+                    position,
+                    Color.Red);
             }
             else
             {
@@ -79,12 +118,17 @@ namespace Dominion
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
 
         public virtual void play()
         {
-            Console.Write("done");
+            //move card from hand to discard
+        }
+
+        public virtual Card Copy(Player o)
+        {
+            return null;
         }
     }
 }

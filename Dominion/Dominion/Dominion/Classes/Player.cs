@@ -12,11 +12,14 @@ using System.Text;
 
 namespace Dominion
 {
-    class Player
+    public class Player
     {
         public List<Card> deck;
         public List<Card> discard;
         public List<Card> hand;
+
+        public bool canSelectHand;
+        public bool canSelectStore;
 
         public string name;
         protected int actions;
@@ -29,6 +32,8 @@ namespace Dominion
             deck = new List<Card>();
             discard = new List<Card>();
             hand = new List<Card>();
+            canSelectHand = false;
+            canSelectStore = false;
 
         }
 
@@ -122,5 +127,48 @@ namespace Dominion
         {
             return hand;
         }
+
+        public void moveCard(Card c, List<Card> origin, List<Card> destination)
+        {
+            destination.Add(c);
+            origin.Remove(c);
+        }
+
+        public int getTotalCards()
+        {
+            int totalCards = 0;
+            
+            foreach (Card c in deck)
+            {
+                totalCards += 1;
+            }
+            foreach (Card c in hand)
+            {
+                totalCards += 1;
+            }
+            foreach (Card c in discard)
+            {
+                totalCards += 1;
+            }
+            return totalCards;
+        }
+        public int getVP()
+        {
+            int totalVP = 0;
+            foreach (Card c in deck)
+            {
+                totalVP += c.VP;
+            }
+            foreach (Card c in hand)
+            {
+                totalVP += c.VP;
+            }
+            foreach (Card c in discard)
+            {
+                totalVP += c.VP;
+            }
+            return totalVP;
+        }
+
     }
 }

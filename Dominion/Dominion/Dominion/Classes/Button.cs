@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using System.Text;
 using Dominion.Classes;
 
-namespace Dominion.Classes
+namespace Dominion
 {
     class Button
     {
@@ -44,8 +44,8 @@ namespace Dominion.Classes
                 text = value;
                 Vector2 size = font.MeasureString(text);
                 textLocation = new Vector2();
-                textLocation.Y = position.Y + ((image.Height / 2) - (size.Y / 2));
-                textLocation.X = position.X + ((image.Width / 2) - (size.X / 2));
+                textLocation.Y = position.Y + ((image.Height / 2) - (size.Y / 2))+10;
+                textLocation.X = position.X + ((image.Width / 5));
             }
         }
 
@@ -53,6 +53,12 @@ namespace Dominion.Classes
         {
             position.X = x;
             position.Y = y;
+        }
+
+        public void Scale(int w, int h)
+        {
+            position.Width = w;
+            position.Height = h;
         }
 
         public void Click()
@@ -97,8 +103,10 @@ namespace Dominion.Classes
                     position,
                     Color.White);
             }
-
-            //spriteBatch.DrawString(font, text, textLocation, Color.Black);
+            if (text != null)
+            {
+                spriteBatch.DrawString(font, text, textLocation, Color.White);
+            }
             
             if (clicked)
             {

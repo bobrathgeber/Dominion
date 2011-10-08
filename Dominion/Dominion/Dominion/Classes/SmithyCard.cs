@@ -12,27 +12,29 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class SmithyCard : Card
     {
-
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public SmithyCard(Player Owner)
+            : base("Smithy", 4, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
-            owner = Owner;
+            this.LoadTexture("images/smithy");
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            SmithyCard c = new SmithyCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+            if (owner.Actions > 0)
+            {
+                owner.Actions -= 1;
+                owner.drawCard(3);
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }

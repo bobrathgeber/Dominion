@@ -18,12 +18,28 @@ namespace Dominion.Classes
         private int cards;
 
         //CONSTR
-        public VillageCard()
-            : base("VillageCard", 3)
+        public VillageCard(Player Owner)
+            : base("Village", 3, Owner)
         {
-            this.LoadTexturue("images/village");
+            this.LoadTexture("images/village");
             actions = 2;
             cards = 1;
+        }
+
+        public override Card Copy(Player o)
+        {
+            VillageCard c = new VillageCard(o);
+            return c;
+        }
+
+        public override void play()
+        {
+            if (owner.Actions > 0)
+            {
+                owner.Actions += 1;
+                owner.drawCard(1);
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }

@@ -12,27 +12,30 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class MarketCard : Card
     {
-
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public MarketCard(Player Owner)
+            : base("Market", 5, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
-            owner = Owner;
+            this.LoadTexture("images/market");
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            MarketCard c = new MarketCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+            if (owner.Actions > 0)
+            {
+                owner.Buys += 1;
+                owner.Coins += 1;
+                owner.drawCard(1);
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }

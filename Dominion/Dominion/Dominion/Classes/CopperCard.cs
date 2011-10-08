@@ -14,21 +14,24 @@ namespace Dominion.Classes
 {
     class CopperCard : Card
     {
-        private int coins;
-        Player owner;
-
         //CONSTR
-        public CopperCard(Player o)
-            : base("Copper", 1)
+        public CopperCard(Player Owner)
+            : base("Copper", 0, Owner)
         {
-            this.LoadTexturue("images/copper");
+            this.LoadTexture("images/copper");
+            owner = Owner;
+        }
 
-            coins = 1;
+        public override Card Copy(Player o)
+        {
+            CopperCard c = new CopperCard(o);
+            return c;
         }
 
         public override void play()
         {
             owner.Coins +=1;
+            owner.moveCard(this, owner.hand, owner.discard);
             Console.Write("done");
         }
     }

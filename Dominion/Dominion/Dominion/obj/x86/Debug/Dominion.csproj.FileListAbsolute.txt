@@ -41,3 +41,46 @@ D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moa
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb
 D:\Projects\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\background800x800.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\coin_sm.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\MouseCursor.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\adventurer.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\bureaucrat.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\cellar.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chancellor.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\chapel.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\copper.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\councilroom.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\curse.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\duchy.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\estate.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\feast.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\festival.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\garden.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\gold.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\laboratory.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\library.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\market.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\militia.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\Mine.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\province.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\remodel.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\silver.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\smithy.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\spy.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\thief.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\throneroom.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\trash.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\village.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\witch.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\woodcutter.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\workshop.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\moat.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\images\endturnbutton.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Content\gameFont.xnb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Dominion.exe
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\bin\x86\Debug\Dominion.pdb
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\obj\x86\Debug\Dominion.exe
+C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\Dominion\obj\x86\Debug\Dominion.pdb

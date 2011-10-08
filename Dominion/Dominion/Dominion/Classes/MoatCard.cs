@@ -12,27 +12,30 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class EstateCard : Card
+    class MoatCard : Card
     {
 
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public MoatCard(Player Owner)
+            : base("Moat", 2, Owner)
         {
-            this.LoadTexture("images/estate");
-            _VP = 1;
-            owner = Owner;
+            this.LoadTexture("images/moat");
         }
 
         public override Card Copy(Player o)
         {
-            EstateCard c = new EstateCard(o);
+            MoatCard c = new MoatCard(o);
             return c;
         }
 
         public override void play()
         {
-            
+            if (owner.Actions > 0)
+            {
+                owner.Actions -= 1;
+                owner.drawCard(2);
+                owner.moveCard(this, owner.hand, owner.discard);
+            }
         }
     }
 }
