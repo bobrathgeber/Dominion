@@ -40,6 +40,14 @@ namespace Dominion
         EndTurnAction bAction;
         Texture2D endTurnTexture;
 
+        Texture2D menuButtonTexture;
+        Button newGameButton;
+        Button exitButton;
+        Button onePlayerButton;
+        Button twoPlayerButton;
+        Button threePlayerButton;
+        Button fourPlayerButton;
+
 
         public Game1()
         {
@@ -57,15 +65,25 @@ namespace Dominion
             graphics.ApplyChanges();
             Window.Title = "Dominion";
             gameState = 1;
-            
-            
-
+                        
             //test player
             players = new List<Player> ();
            
 
           //LEAVE THIS LAST!!!
             base.Initialize();
+        }
+
+        private void initializeMainMenu()
+        {
+            menuButtonTexture = Content.Load<Texture2D>("images/playerButton");
+            //newGameButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction) ;
+            //exitButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction);
+            //onePlayerButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction);
+            //twoPlayerButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction);
+            //threePlayerButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction);
+            //fourPlayerButton = new Button(menuButtonTexture, font, spriteBatch, EndTurnAction);
+            
         }
 
         /// <summary>
@@ -82,10 +100,11 @@ namespace Dominion
             font = Content.Load<SpriteFont>("gameFont");
             coinIcon = Content.Load<Texture2D>("images/coin_sm");
             bAction = new EndTurnAction();
-            
+                        
             endTurnTexture = Content.Load<Texture2D>("images/endturnbutton");
             endTurnButton = new Button(endTurnTexture, font, spriteBatch, bAction);
             endTurnButton.Location(550, 20);
+            initializeMainMenu();
 
         }
 
@@ -175,8 +194,11 @@ namespace Dominion
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             drawBackground();
-            
-            if (gameState == 2)
+            if (gameState == 1)
+            {
+
+            }
+            else if (gameState == 2)
             {
                 //draw cards in hand
                 for (int i=0; i<players[currentPlayer].hand.Count; i++)

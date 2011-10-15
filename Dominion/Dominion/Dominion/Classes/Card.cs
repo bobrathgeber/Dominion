@@ -49,7 +49,7 @@ namespace Dominion
 
         public int VP
         {
-            get { if (_VP == null) { return 0; } else { return _VP; } }
+            get { return _VP;  }
         }
 
         protected void LoadTexture(string path)

@@ -120,6 +120,7 @@
     <Compile Include="Classes\MarketCard.cs" />
     <Compile Include="Classes\MilitiaCard.cs" />
     <Compile Include="Classes\MoatCard.cs" />
+    <Compile Include="Classes\NewGameAction.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\ProvinceCard.cs" />
     <Compile Include="Classes\Services.cs" />
