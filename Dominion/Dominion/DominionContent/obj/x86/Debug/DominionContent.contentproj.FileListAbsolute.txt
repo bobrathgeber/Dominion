@@ -1,2 +1,0 @@
-D:\Projects\Dominion\Dominion\Dominion\DominionContent\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Robert\Dominion\Dominion\Dominion\DominionContent\obj\x86\Debug\ResolveAssemblyReference.cache
