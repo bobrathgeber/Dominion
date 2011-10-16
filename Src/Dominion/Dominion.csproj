@@ -118,6 +118,7 @@
     <Compile Include="Classes\Cards\EstateCard.cs" />
     <Compile Include="Classes\Cards\GoldCard.cs" />
     <Compile Include="Classes\Controller.cs" />
+    <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\HandButton.cs" />
     <Compile Include="Classes\IButtonAction.cs" />
     <Compile Include="Classes\Cards\MarketCard.cs" />
@@ -125,7 +126,9 @@
     <Compile Include="Classes\Cards\MoatCard.cs" />
     <Compile Include="Classes\Actions\NewGameAction.cs" />
     <Compile Include="Classes\Clickable.cs" />
-    <Compile Include="Classes\IDrawable.cs" />
+    <Compile Include="Classes\IRenderable.cs" />
+    <Compile Include="Classes\IInputObserver.cs" />
+    <Compile Include="Classes\InteractionManager.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Cards\ProvinceCard.cs" />
     <Compile Include="Classes\Services.cs" />

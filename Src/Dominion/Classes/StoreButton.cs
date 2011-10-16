@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Dominion.Classes
 {
     class StoreButton
-        : IClickable, IDrawable
+        : Entity, IInputObserver, IClickable, IRenderable
     {
         private Card _card;
         private Store _store;
@@ -88,6 +88,11 @@ namespace Dominion.Classes
             //{
             //    batch.DrawString(_font, _text, _textLocation, Color.White);
             //}
+        }
+
+        public void Update(Controller controller)
+        {
+            InteractionManager.ObserveAndTriggerClick(controller, this);
         }
     }
 }

@@ -50,9 +50,10 @@ namespace Dominion
 
         Controller _controller;
 
-        List<IClickable> _clickables;
-
-
+        // store all entity instances in one place.
+        // this way we can perform operations on the entire set (or subset) easily.
+        List<Entity> _entities;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -73,7 +74,7 @@ namespace Dominion
             //test player
             players = new List<Player> ();
 
-            _clickables = new List<IClickable>();
+            _entities = new List<Entity>();
 
 
            
@@ -121,8 +122,6 @@ namespace Dominion
             // TODO: Unload any non ContentManager content here
         }
 
-        public List<IClickable> Clickables { get; set; }
-
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -151,11 +150,10 @@ namespace Dominion
             {
                 _controller.UpdateState();
 
-                // detect click events
-                foreach (var clickable in StoreButtons)
+                // detect controller events
+                foreach (var inputObserver in _entities.OfType<IInputObserver>())
                 {
-                    if (_controller.HasClicked(clickable))
-                        clickable.Click(_controller.Player);
+                    inputObserver.Update(_controller);
                 }
 
                 updateCards();
@@ -302,7 +300,6 @@ namespace Dominion
 
         public void GenerateStoreButtons()
         {
-            StoreButtons = new List<StoreButton>();
             var cards = store.GetFirstCardInEachGroup();
             for (int i = 0; i < cards.Count; i++)
             {
@@ -315,13 +312,13 @@ namespace Dominion
                 sb.Text = store.CardGroups.Count(x => x.Key == sb.CardName).ToString();
                 sb.Scale(cards[i].Image.Width / 2, cards[i].Image.Height / 2);
 
-                StoreButtons.Add(sb);
+                _entities.Add(sb);
             }
         }
 
         public void drawButtons(SpriteBatch batch)
         {
-            foreach(var button in StoreButtons)
+            foreach(var button in _entities.OfType<StoreButton>())
             {
                 button.Draw(batch);
             }
