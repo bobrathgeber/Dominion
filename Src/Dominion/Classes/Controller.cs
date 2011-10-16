@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dominion.Classes
 {
-    class Controller
+    public class Controller
     {
         private SmartMouse _sm;
 
