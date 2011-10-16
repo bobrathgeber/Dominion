@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Dominion.Classes
 {
-    interface IDrawable
+    interface IRenderable
     {
         void Draw(SpriteBatch batch);
     }
