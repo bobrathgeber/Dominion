@@ -6,7 +6,7 @@ using Dominion.Classes;
 
 namespace Dominion.Classes
 {
-    class BuyCardAction : IButtonAction
+    public class BuyCardAction : IButtonAction
     {
         private Player _player;
         private Store _store;

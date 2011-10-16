@@ -12,7 +12,7 @@ using Dominion.Classes;
 
 namespace Dominion
 {
-    class Store
+    public class Store
     {
         public List<Card> stock;
         public List<int> stockAmount;
