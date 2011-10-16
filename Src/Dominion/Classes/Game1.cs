@@ -291,7 +291,7 @@ namespace Dominion
                 BuyCardAction bAction = new BuyCardAction();
                 bAction.store = store;
                 bAction.player = players[currentPlayer];
-                bAction.setCard((store.stock[i].Copy(players[currentPlayer])));
+                bAction.setCard(store.stock[i]);
                 
                 buttonTexture = store.stock[i].cardImage;
                 Button cardButton = new Button(buttonTexture, font, spriteBatch, bAction);

@@ -21,12 +21,6 @@ namespace Dominion.Classes
             this.LoadTexture("images/militia");
         }
 
-        public override Card Copy(Player o)
-        {
-            MilitiaCard c = new MilitiaCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)

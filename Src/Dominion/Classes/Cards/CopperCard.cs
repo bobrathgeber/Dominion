@@ -22,12 +22,6 @@ namespace Dominion.Classes
             owner = Owner;
         }
 
-        public override Card Copy(Player o)
-        {
-            CopperCard c = new CopperCard(o);
-            return c;
-        }
-
         public override void play()
         {
             owner.Coins +=1;

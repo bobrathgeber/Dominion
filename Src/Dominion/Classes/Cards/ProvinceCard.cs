@@ -23,12 +23,6 @@ namespace Dominion.Classes
             owner = Owner;
         }
 
-        public override Card Copy(Player o)
-        {
-            ProvinceCard c = new ProvinceCard(o);
-            return c;
-        }
-
         public override void play()
         {
 

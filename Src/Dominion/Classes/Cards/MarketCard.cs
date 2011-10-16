@@ -21,12 +21,6 @@ namespace Dominion.Classes
             this.LoadTexture("images/market");
         }
 
-        public override Card Copy(Player o)
-        {
-            MarketCard c = new MarketCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)

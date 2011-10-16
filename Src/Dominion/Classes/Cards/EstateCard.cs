@@ -24,12 +24,6 @@ namespace Dominion.Classes
             owner = Owner;
         }
 
-        public override Card Copy(Player o)
-        {
-            EstateCard c = new EstateCard(o);
-            return c;
-        }
-
         public override void play()
         {
             

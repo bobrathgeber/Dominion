@@ -22,12 +22,6 @@ namespace Dominion.Classes
             this.LoadTexture("images/moat");
         }
 
-        public override Card Copy(Player o)
-        {
-            MoatCard c = new MoatCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)

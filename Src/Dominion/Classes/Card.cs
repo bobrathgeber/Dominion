@@ -33,6 +33,7 @@ namespace Dominion
             Cost = c;
             owner = o;
             isSelected = false;
+            position = new Rectangle();
         }
 
         public int Cost
@@ -59,11 +60,13 @@ namespace Dominion
             //no owner means its a store image
             if (owner == null)
             {
-                position = new Rectangle(0, 0, cardImage.Width / 2, cardImage.Height / 2);
+                position.Height = cardImage.Height / 2;
+                position.Width = cardImage.Width / 2;
             }
             else
             {
-                position = new Rectangle(0, 0, cardImage.Width, cardImage.Height);
+                position.Height = cardImage.Height;
+                position.Width = cardImage.Width;
             }
         }
 
@@ -75,21 +78,7 @@ namespace Dominion
             {
                 if (position.Contains(new Point(mouse.X, mouse.Y)))
                 {
-                    if (owner != null)
-                    {
-                        if (owner.canSelectHand)
-                        {
-
-                        }
-                        else if (owner.canSelectStore)
-                        {
-
-                        }
-                        else
-                        {
-                            play();
-                        }
-                    }
+                    play();
                 }
             }
             oldMouse = mouse;
@@ -99,15 +88,11 @@ namespace Dominion
         {
             if (position.Contains(new Point(mouse.X, mouse.Y)))
             {
-                spriteBatch.Draw(cardImage,
-                    position,
-                    Color.Silver);
+                spriteBatch.Draw(cardImage, position, Color.Silver);
             }
             else if (isSelected)
             {
-                spriteBatch.Draw(cardImage,
-                    position,
-                    Color.Red);
+                spriteBatch.Draw(cardImage, position, Color.Red);
             }
             else
             {
@@ -124,11 +109,6 @@ namespace Dominion
         public virtual void play()
         {
             //move card from hand to discard
-        }
-
-        public virtual Card Copy(Player o)
-        {
-            return null;
         }
     }
 }
