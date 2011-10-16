@@ -14,6 +14,7 @@ namespace Dominion
 {
     public class Player
     {
+
         public List<Card> deck;
         public List<Card> discard;
         public List<Card> hand;
@@ -28,13 +29,11 @@ namespace Dominion
 
         public Player()
         {
-            
             deck = new List<Card>();
             discard = new List<Card>();
             hand = new List<Card>();
             canSelectHand = false;
             canSelectStore = false;
-
         }
 
         public int Actions
@@ -55,7 +54,7 @@ namespace Dominion
             set { coins = value; }
         }
 
-        public void playCard(int cardPosition)
+        public void Play(Card c)
         {
             //removes card @ cardPosition from hand
         }
@@ -173,5 +172,26 @@ namespace Dominion
             return totalVP;
         }
 
+        public void UpdateCardsInHand()
+        {
+            for (int i = hand.Count - 1; i >= 0; i--)
+            {
+                hand[i].Update();                
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            //draw cards in hand
+            for (int i = 0; i < hand.Count; i++)
+            {
+                hand[i].Draw(spriteBatch);
+            }
+        }
+
+        public void Buy(Card c, Store s)
+        {
+            s.buyCard(this, c);
+        }
     }
 }

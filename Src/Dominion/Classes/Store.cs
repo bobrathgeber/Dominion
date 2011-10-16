@@ -62,36 +62,37 @@ namespace Dominion
 
         public Boolean checkEndGame()
         {
-            int exhaustedStocks=0;
-            for (int i = 0; i < stockAmount.Count; i++)
-            {
-                if (stockAmount[i] < 1)
-                {
-                    exhaustedStocks += 1;
-                }
-                if (stock[i].Name == "Province" && stockAmount[i] < 1)
-                {
-                    return true;
-                }
-            }
-            if (exhaustedStocks >= 3)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //int exhaustedStocks=0;
+            //for (int i = 0; i < stockAmount.Count; i++)
+            //{
+            //    if (stockAmount[i] < 1)
+            //    {
+            //        exhaustedStocks += 1;
+            //    }
+            //    if (stock[i].Name == "Province" && stockAmount[i] < 1)
+            //    {
+            //        return true;
+            //    }
+            //}
+            //if (exhaustedStocks >= 3)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}\
+            return false;
         }
 
         public void buyCard(Player p, Card c)
         {
             for(int i = stock.Count-1; i>=0; i--)
             {
-                if (stock[i].Name == c.Name && stockAmount[i]>0 && p.Buys > 0 && p.Coins >= c.Cost)
+                if (stock[i].Name == c.Name && p.Buys > 0 && p.Coins >= c.Cost)
                 {
-                    stockAmount[i] -= 1;
-                    p.addCardToDiscard(c);
+                    p.addCardToDiscard(stock[i]);
+                    stock.RemoveAt(i);
                     p.Buys -= 1;
                     p.Coins -= c.Cost;
                     return;                    
@@ -99,50 +100,81 @@ namespace Dominion
             }
         }
 
+        public IEnumerable<IGrouping<string, Card>>CardGroups
+        {
+            get
+            {
+                return stock.GroupBy(x => x.Name);
+            }
+        }
+
+
+        public List<Card> GetFirstCardInEachGroup()
+        {
+            var result = new List<Card>();
+
+            foreach (var group in stock.GroupBy(x => new { x.Name }))
+            {
+                result.Add(group.First());
+            }
+
+            return result;
+        }
+
+        public List<string> GetUniqueCardTypes()
+        {
+            var result = new List<string>();
+
+            foreach(var kvp in stock.ToDictionary(x => x.Name))
+            {
+                result.Add(kvp.Key);
+            }
+
+            return result;
+
+        }
+
         public Store()
         {
             stock = new List<Card>();
-            stockAmount = new List<int>();
             bAction = new BuyCardAction();
-            Card c;
             //check game mode ***UPDATE LATER***
             if (true)
             {
+                AddMany(new MoatCard(null), 10);
+                AddMany(new VillageCard(null), 10);
+                AddMany(new WoodcutterCard(null), 10);
+                AddMany(new MilitiaCard(null), 10);
+                AddMany(new SmithyCard(null), 10);
+                AddMany(new MarketCard(null), 10);
+                AddMany(new EstateCard(null), 10);
+                AddMany(new EstateCard(null), 10);
+
                 //stock.Add(c = new CellarCard(null));
-                stock.Add(c = new MoatCard(null));
-                stock.Add(c = new VillageCard(null));
-                stock.Add(c = new WoodcutterCard(null));
                 //stock.Add(c = new WorkshopCard(null));
-                stock.Add(c = new MilitiaCard(null));
                 //stock.Add(c = new RemodelCard(null));
-                stock.Add(c = new SmithyCard(null));
-                stock.Add(c = new MarketCard(null));
                 //stock.Add(c = new MineCard(null));
 
-                for(int i = 0; i<stock.Count; i++)
-                {
-                    stockAmount.Add(10);
-                }
                 resetTreasureAndVP();
             }
         }
 
         private void resetTreasureAndVP()
         {
-            Card c;
-            stock.Add(c = new EstateCard(null));
-            stockAmount.Add(24);
-            stock.Add(c = new DuchyCard(null));
-            stockAmount.Add(12);
-            stock.Add(c = new ProvinceCard(null));
-            stockAmount.Add(12);
+            AddMany(new EstateCard(null), 24);
+            AddMany(new DuchyCard(null), 12);
+            AddMany(new ProvinceCard(null), 12);
+            AddMany(new CopperCard(null), 60);
+            AddMany(new SilverCard(null), 40);
+            AddMany(new GoldCard(null), 30);
+        }
 
-            stock.Add(c = new CopperCard(null));
-            stockAmount.Add(60);
-            stock.Add(c = new SilverCard(null));
-            stockAmount.Add(40);
-            stock.Add(c = new GoldCard(null));
-            stockAmount.Add(30);
-        }        
+        private void AddMany(Card c, int amount)
+        {
+            for (var i = 0; i < amount; i++)
+            {
+                stock.Add(c);
+            }
+        }
     }
 }

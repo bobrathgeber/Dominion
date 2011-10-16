@@ -25,9 +25,7 @@ namespace Dominion.Classes
 
         public void Execute()
         {
-            var newCard = _card;
             
-            store.buyCard(_player, newCard);
         }
 
         public void setCard(Card c)

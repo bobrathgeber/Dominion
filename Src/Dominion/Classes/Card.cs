@@ -17,7 +17,7 @@ namespace Dominion
     {
         public bool isSelected;
         public Rectangle position;
-        public Texture2D cardImage;
+        public Texture2D Image;
         protected Player owner;
 
         protected int cost;
@@ -56,17 +56,17 @@ namespace Dominion
         protected void LoadTexture(string path)
         {
             var manager = ServiceLocator.ContentManager;
-            cardImage = manager.Load<Texture2D>(path);
+            Image = manager.Load<Texture2D>(path);
             //no owner means its a store image
             if (owner == null)
             {
-                position.Height = cardImage.Height / 2;
-                position.Width = cardImage.Width / 2;
+                position.Height = Image.Height / 2;
+                position.Width = Image.Width / 2;
             }
             else
             {
-                position.Height = cardImage.Height;
-                position.Width = cardImage.Width;
+                position.Height = Image.Height;
+                position.Width = Image.Width;
             }
         }
 
@@ -84,19 +84,24 @@ namespace Dominion
             oldMouse = mouse;
         }
 
+        public void Buy()
+        {
+            //_store.buyCard(owner, this);
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (position.Contains(new Point(mouse.X, mouse.Y)))
             {
-                spriteBatch.Draw(cardImage, position, Color.Silver);
+                spriteBatch.Draw(Image, position, Color.Silver);
             }
             else if (isSelected)
             {
-                spriteBatch.Draw(cardImage, position, Color.Red);
+                spriteBatch.Draw(Image, position, Color.Red);
             }
             else
             {
-                spriteBatch.Draw(cardImage, position, Color.White);
+                spriteBatch.Draw(Image, position, Color.White);
             }
             
         }

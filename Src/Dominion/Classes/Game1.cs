@@ -32,7 +32,7 @@ namespace Dominion
         Store store;
         List<Player> players;
         public int currentPlayer;
-        List<Button> StoreButtons;
+        List<StoreButton> StoreButtons;
 
         SpriteFont font;
         Texture2D coinIcon;
@@ -47,6 +47,10 @@ namespace Dominion
         Button twoPlayerButton;
         Button threePlayerButton;
         Button fourPlayerButton;
+
+        Controller _controller;
+
+        List<IClickable> _clickables;
 
 
         public Game1()
@@ -68,6 +72,10 @@ namespace Dominion
                         
             //test player
             players = new List<Player> ();
+
+            _clickables = new List<IClickable>();
+
+
            
 
           //LEAVE THIS LAST!!!
@@ -113,6 +121,8 @@ namespace Dominion
             // TODO: Unload any non ContentManager content here
         }
 
+        public List<IClickable> Clickables { get; set; }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -120,6 +130,8 @@ namespace Dominion
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -136,10 +148,17 @@ namespace Dominion
                 }
             }
             else if (gameState == 2) // game running
-            {                
-                updateStoreStock();
+            {
+                _controller.UpdateState();
+
+                // detect click events
+                foreach (var clickable in StoreButtons)
+                {
+                    if (_controller.HasClicked(clickable))
+                        clickable.Click(_controller.Player);
+                }
+
                 updateCards();
-                updateButtons(players[currentPlayer]);
                 endTurnButton.Update();
                 checkEndGameConditions();
             }
@@ -148,9 +167,7 @@ namespace Dominion
                 
             }
 
-            // TODO: Add your update logic here
-
-            
+            // TODO: Add your update logic here 
             UpdateMouse();
             base.Update(gameTime);
         }
@@ -176,13 +193,17 @@ namespace Dominion
             }
         }
 
+        public Player CurrentPlayer
+        {
+            get
+            {
+                return players[currentPlayer];
+            }
+        }
+        
         private void updateCards()
         {
-            int count = players[currentPlayer].hand.Count-1;
-            for (int i = count; i >= 0; i--)
-            {
-                players[currentPlayer].hand[i].Update();                
-            }
+            CurrentPlayer.UpdateCardsInHand();
         }
 
         /// <summary>
@@ -200,11 +221,7 @@ namespace Dominion
             }
             else if (gameState == 2)
             {
-                //draw cards in hand
-                for (int i=0; i<players[currentPlayer].hand.Count; i++)
-                {
-                    players[currentPlayer].hand[i].Draw(spriteBatch); 
-                }
+                CurrentPlayer.Draw(spriteBatch);
 
                 // Draw the infobar
                 spriteBatch.Draw(coinIcon, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+5, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
@@ -212,7 +229,7 @@ namespace Dominion
                 spriteBatch.DrawString(font, "actions: " + players[currentPlayer].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 spriteBatch.DrawString(font, "buys: " + players[currentPlayer].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 endTurnButton.Draw();
-                drawButtons();
+                drawButtons(spriteBatch);
                              
             }
             else if (gameState == 3)
@@ -252,12 +269,13 @@ namespace Dominion
             for (int i = 0; i < PlayerCount; i++)
             {
                 Player p = new Player();
+                _controller = new Controller(p);
                 p.Buys = 10;
                 p.Coins = 6;
                 for (int j = 0; j < 7; j++)
                 {
                     CopperCard cc = new CopperCard(p);
-                    store.buyCard(p, cc);
+                    p.Buy(cc, store);
                 }
 
                 for (int k = 0; k < 3; k++)
@@ -278,56 +296,34 @@ namespace Dominion
             }            
             currentPlayer = 0;
             bAction.player = (players[currentPlayer]);
+
             GenerateStoreButtons();
         }
 
         public void GenerateStoreButtons()
         {
-            
-            Texture2D buttonTexture;
-            StoreButtons = new List<Button>();
-            for (int i = 0; i < store.stock.Count; i++)
+            StoreButtons = new List<StoreButton>();
+            var cards = store.GetFirstCardInEachGroup();
+            for (int i = 0; i < cards.Count; i++)
             {
-                BuyCardAction bAction = new BuyCardAction();
-                bAction.store = store;
-                bAction.player = players[currentPlayer];
-                bAction.setCard(store.stock[i]);
-                
-                buttonTexture = store.stock[i].cardImage;
-                Button cardButton = new Button(buttonTexture, font, spriteBatch, bAction);
+                var sb = new StoreButton(store, cards[i], font);
                 if (i > 8)
-                {
-                    cardButton.Location((40 + ((i-9) * buttonTexture.Width / 2)), 250);
-                }
+                    sb.Location((40 + ((i - 9) * cards[i].Image.Width / 2)), 250);
                 else
-                {
-                    cardButton.Location((40 + (i * buttonTexture.Width / 2)), 100);
-                }
-                cardButton.Text = store.stockAmount[i].ToString();
-                cardButton.Scale(buttonTexture.Width / 2, buttonTexture.Height / 2);
-                StoreButtons.Add(cardButton);
-            }
-        }
-        public void updateStoreStock()
-        {
-            for (int i = 0; i < StoreButtons.Count; i++)
-            {
-                StoreButtons[i].Text = store.stockAmount[i].ToString();
+                    sb.Location((40 + (i * cards[i].Image.Width / 2)), 100);
+
+                sb.Text = store.CardGroups.Count(x => x.Key == sb.CardName).ToString();
+                sb.Scale(cards[i].Image.Width / 2, cards[i].Image.Height / 2);
+
+                StoreButtons.Add(sb);
             }
         }
 
-        public void drawButtons()
+        public void drawButtons(SpriteBatch batch)
         {
-            for (int i = 0; i < StoreButtons.Count; i++)
+            foreach(var button in StoreButtons)
             {
-                StoreButtons[i].Draw();
-            }
-        }
-        public void updateButtons(Player p)
-        {
-            for (int i = 0; i < StoreButtons.Count; i++)
-            {
-                StoreButtons[i].Update();
+                button.Draw(batch);
             }
         }
     }
