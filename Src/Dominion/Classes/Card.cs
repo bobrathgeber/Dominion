@@ -14,6 +14,7 @@ using Dominion.Classes;
 namespace Dominion
 {
     public abstract class Card
+        : IInputObserver, IClickable
     {
         public bool isSelected;
         public Rectangle position;
@@ -70,20 +71,6 @@ namespace Dominion
             }
         }
 
-        public void Update()
-        {
-            mouse = Mouse.GetState();
-
-            if (mouse.LeftButton == ButtonState.Released && oldMouse.LeftButton == ButtonState.Pressed)
-            {
-                if (position.Contains(new Point(mouse.X, mouse.Y)))
-                {
-                    play();
-                }
-            }
-            oldMouse = mouse;
-        }
-
         public void Buy()
         {
             //_store.buyCard(owner, this);
@@ -114,6 +101,21 @@ namespace Dominion
         public virtual void play()
         {
             //move card from hand to discard
+        }
+
+        public void Update(Controller controller)
+        {
+            InteractionManager.ObserveAndTriggerClick(controller, this);
+        }
+
+        public void Click(Player p)
+        {
+            play();
+        }
+
+        public Rectangle BoundingBox
+        {
+            get { return position; }
         }
     }
 }

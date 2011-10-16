@@ -156,7 +156,6 @@ namespace Dominion
                     inputObserver.Update(_controller);
                 }
 
-                updateCards();
                 endTurnButton.Update();
                 checkEndGameConditions();
             }
@@ -197,11 +196,6 @@ namespace Dominion
             {
                 return players[currentPlayer];
             }
-        }
-        
-        private void updateCards()
-        {
-            CurrentPlayer.UpdateCardsInHand();
         }
 
         /// <summary>

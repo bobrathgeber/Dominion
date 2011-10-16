@@ -172,14 +172,6 @@ namespace Dominion
             return totalVP;
         }
 
-        public void UpdateCardsInHand()
-        {
-            for (int i = hand.Count - 1; i >= 0; i--)
-            {
-                hand[i].Update();                
-            }
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             //draw cards in hand
