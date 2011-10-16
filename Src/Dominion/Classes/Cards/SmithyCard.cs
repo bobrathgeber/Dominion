@@ -32,7 +32,7 @@ namespace Dominion.Classes
             if (owner.Actions > 0)
             {
                 owner.Actions -= 1;
-                owner.drawCard(3);
+                owner.pickupCard(3);
                 owner.moveCard(this, owner.hand, owner.discard);
             }
         }

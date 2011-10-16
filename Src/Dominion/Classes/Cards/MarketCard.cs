@@ -33,7 +33,7 @@ namespace Dominion.Classes
             {
                 owner.Buys += 1;
                 owner.Coins += 1;
-                owner.drawCard(1);
+                owner.pickupCard(1);
                 owner.moveCard(this, owner.hand, owner.discard);
             }
         }

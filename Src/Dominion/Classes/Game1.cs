@@ -203,12 +203,8 @@ namespace Dominion
                 //draw cards in hand
                 for (int i=0; i<players[currentPlayer].hand.Count; i++)
                 {
-                    players[currentPlayer].hand[i].position.X = ((i * 140) + 20);
-                    players[currentPlayer].hand[i].position.Y = 600;
                     players[currentPlayer].hand[i].Draw(spriteBatch); 
                 }
-                
-
 
                 // Draw the infobar
                 spriteBatch.Draw(coinIcon, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+5, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);

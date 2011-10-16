@@ -60,7 +60,7 @@ namespace Dominion
             //removes card @ cardPosition from hand
         }
 
-        public void drawCard(int numberOfCards)
+        public void pickupCard(int numberOfCards)
         {
             for(int n = 0; n < numberOfCards; n++)
             {
@@ -75,9 +75,12 @@ namespace Dominion
                     discard.Clear();
                     shuffleDeck();
                 }
-                
-                hand.Add(deck[0]);
-                deck.RemoveAt(0);            
+                var card = deck[0];
+                deck.RemoveAt(0);
+
+                card.position.X = ((hand.Count * 140) + 20);
+                card.position.Y = 600;
+                hand.Add(card);
             }
         }
 
@@ -117,7 +120,7 @@ namespace Dominion
                 discard.Add(c);
                 hand.Remove(c);
             }
-            drawCard(5);
+            pickupCard(5);
             actions = 1;
             buys = 1;
             coins = 0;
