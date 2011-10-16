@@ -26,12 +26,6 @@ namespace Dominion.Classes
             cards = 1;
         }
 
-        public override Card Copy(Player o)
-        {
-            VillageCard c = new VillageCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)

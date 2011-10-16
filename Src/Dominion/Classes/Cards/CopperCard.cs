@@ -26,7 +26,6 @@ namespace Dominion.Classes
         {
             owner.Coins +=1;
             owner.moveCard(this, owner.hand, owner.discard);
-            Console.Write("done");
         }
     }
 }

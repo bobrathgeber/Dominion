@@ -21,12 +21,6 @@ namespace Dominion.Classes
             this.LoadTexture("images/woodcutter");
         }
 
-        public override Card Copy(Player o)
-        {
-            WoodcutterCard c = new WoodcutterCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)

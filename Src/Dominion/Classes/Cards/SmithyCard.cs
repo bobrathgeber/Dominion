@@ -21,12 +21,6 @@ namespace Dominion.Classes
             this.LoadTexture("images/smithy");
         }
 
-        public override Card Copy(Player o)
-        {
-            SmithyCard c = new SmithyCard(o);
-            return c;
-        }
-
         public override void play()
         {
             if (owner.Actions > 0)
