@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using System.Text;
+
+namespace Dominion.Classes
+{
+    class EstateCard : Card
+    {
+
+        //CONSTR
+        public EstateCard(Player Owner)
+            : base("Estate", 2, Owner)
+        {
+            this.LoadTexture("images/estate");
+            _VP = 1;
+            owner = Owner;
+        }
+
+        public override Card Copy(Player o)
+        {
+            EstateCard c = new EstateCard(o);
+            return c;
+        }
+
+        public override void play()
+        {
+            
+        }
+    }
+}
