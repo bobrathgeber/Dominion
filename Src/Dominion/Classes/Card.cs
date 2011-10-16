@@ -58,17 +58,9 @@ namespace Dominion
         {
             var manager = ServiceLocator.ContentManager;
             Image = manager.Load<Texture2D>(path);
-            //no owner means its a store image
-            if (owner == null)
-            {
-                position.Height = Image.Height / 2;
-                position.Width = Image.Width / 2;
-            }
-            else
-            {
-                position.Height = Image.Height;
-                position.Width = Image.Width;
-            }
+     
+            position.Height = Image.Height;
+            position.Width = Image.Width;
         }
 
         public void Buy()
