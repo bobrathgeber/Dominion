@@ -6,29 +6,20 @@ using Microsoft.Xna.Framework;
 
 namespace Dominion.Classes
 {
-    class HandButton
-     : IClickable
+    public class HandButton
+        : IInputObserver, IClickable, IRenderable
     {
         private Card _card;
-        private Rectangle _position;
 
         public HandButton(Card card)
         {
             _card = card;
-            _position = new Rectangle();
+            BoundingBox = new Rectangle();
         }
 
         public void Click(Player p)
         {
             p.Play(_card);
-        }
-
-        public Rectangle Position
-        {
-            get
-            {
-                return _position;
-            }
         }
 
         public void Click()
@@ -38,7 +29,13 @@ namespace Dominion.Classes
 
         public Rectangle BoundingBox
         {
-            get { throw new NotImplementedException(); }
+            get;
+            set;
+        }
+
+        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
+        {
+            throw new NotImplementedException();
         }
     }
 }

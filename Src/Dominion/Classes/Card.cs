@@ -24,9 +24,6 @@ namespace Dominion
         protected int cost;
         protected string name;
         protected int _VP;
-
-        MouseState mouse;
-        MouseState oldMouse;
         
         public Card(string n, int c, Player o)
         {
@@ -58,9 +55,6 @@ namespace Dominion
         {
             var manager = ServiceLocator.ContentManager;
             Image = manager.Load<Texture2D>(path);
-     
-            position.Height = Image.Height;
-            position.Width = Image.Width;
         }
 
         public void Buy()
@@ -68,22 +62,6 @@ namespace Dominion
             //_store.buyCard(owner, this);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (position.Contains(new Point(mouse.X, mouse.Y)))
-            {
-                spriteBatch.Draw(Image, position, Color.Silver);
-            }
-            else if (isSelected)
-            {
-                spriteBatch.Draw(Image, position, Color.Red);
-            }
-            else
-            {
-                spriteBatch.Draw(Image, position, Color.White);
-            }
-            
-        }
 
         public override string ToString()
         {
@@ -95,19 +73,5 @@ namespace Dominion
             //move card from hand to discard
         }
 
-        public void Update(Controller controller)
-        {
-            InteractionManager.ObserveAndTriggerClick(controller, this);
-        }
-
-        public void Click(Player p)
-        {
-            play();
-        }
-
-        public Rectangle BoundingBox
-        {
-            get { return position; }
-        }
     }
 }

@@ -119,6 +119,7 @@
     <Compile Include="Classes\Cards\GoldCard.cs" />
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\Hand.cs" />
     <Compile Include="Classes\HandButton.cs" />
     <Compile Include="Classes\IButtonAction.cs" />
     <Compile Include="Classes\Cards\MarketCard.cs" />
