@@ -19,6 +19,7 @@ namespace Dominion
         public Player currentPlayer;
         public BuyCardAction bAction;
         public List<Label> Labels;
+        private List<StoreSlot> slots;
 
         public Player CurrentPlayer
         {
@@ -88,29 +89,15 @@ namespace Dominion
 
         public void AddCard(Card card)
         {
-            var existing_stack_top_card = stock.FirstOrDefault(x => x.Name == card.Name);
+            StoreSlot target_slot;
+            target_slot = slots.FirstOrDefault(x => x.Name == card.Name);
 
-            if (existing_stack_top_card != null)
-                card.position = existing_stack_top_card.position;
+            if (target_slot != null)
+                target_slot.AddCard(card);
             else
             {
-                var groups = stock.GroupBy(x => x.Name);
-                var group_count = groups.Count();
-                var stockCountLabel = new Label();
-                
-                card.Scale(card.Image.Width / 2, card.Image.Height / 2);
-
-                if (group_count >= 8)
-                    card.Location(40 + ((group_count - 8) * card.Image.Width / 2), 250);
-                else
-                {
-                    card.Location(40 + (group_count * card.Image.Width / 2), 100);
-                }
-    
-                stockCountLabel.Text = stock.Count(x => x.Name == card.Name).ToString();
-                stockCountLabel.BoundingBox = (new Vector2(card.position.X+(card.position.Width/2 - stockCountLabel.GetSize().X / 2), card.position.Y+card.position.Height));
-                ServiceLocator.GameEntities.Add(stockCountLabel);
-                
+                var available_slot = slots.FirstOrDefault(x => x.HasCards == false);
+                available_slot.AddCard(card);               
             }
 
             stock.Add(card);
@@ -175,6 +162,7 @@ namespace Dominion
 
         public Store()
         {
+            CreateSlots();
             stock = new List<Card>();
             bAction = new BuyCardAction();
             //check game mode ***UPDATE LATER***
@@ -195,6 +183,47 @@ namespace Dominion
                 //stock.Add(c = new MineCard(null));
 
                 resetTreasureAndVP();
+            }
+
+        
+        }
+
+        private void CreateSlots()
+        {
+            // create slots
+            // create 8 slots in row 1
+            slots = new List<StoreSlot>();
+
+            var image_width = 132;
+            var image_height = 200;
+
+            var box = new Rectangle();
+            box.Width = image_width / 2;
+            box.Height = image_height / 2;
+
+            for (var i = 0; i < 8; i++)
+            {                
+                box.X = 40 + (i * image_width / 2);
+                box.Y = 100;
+              
+                var s = new StoreSlot();
+                s.Row = 0;
+
+                s.BoundingBox = box;
+                slots.Add(s);
+            }
+
+            // create 8 slots in row 2
+            for (var i = 0; i < 8; i++)
+            {                
+                box.X = 40 + (i * image_width / 2);
+                box.Y = 250;
+
+                var s = new StoreSlot();
+                s.Row = 1;
+
+                s.BoundingBox = box;
+                slots.Add(s);
             }
         }
 
