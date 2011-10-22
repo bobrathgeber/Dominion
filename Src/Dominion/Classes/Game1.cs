@@ -219,7 +219,6 @@ namespace Dominion
                 spriteBatch.DrawString(font, "actions: " + players[currentPlayer].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 spriteBatch.DrawString(font, "buys: " + players[currentPlayer].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 endTurnButton.Draw();
-                drawButtons(spriteBatch);
 
                 foreach (var renderable in _entities.OfType<IRenderable>())
                 {

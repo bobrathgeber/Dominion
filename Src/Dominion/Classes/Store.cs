@@ -95,14 +95,22 @@ namespace Dominion
             else
             {
                 var groups = stock.GroupBy(x => x.Name);
-                var group_count = groups.Count(); 
+                var group_count = groups.Count();
+                var stockCountLabel = new Label();
                 
                 card.Scale(card.Image.Width / 2, card.Image.Height / 2);
 
                 if (group_count >= 8)
                     card.Location(40 + ((group_count - 8) * card.Image.Width / 2), 250);
                 else
+                {
                     card.Location(40 + (group_count * card.Image.Width / 2), 100);
+                }
+    
+                stockCountLabel.Text = stock.Count(x => x.Name == card.Name).ToString();
+                stockCountLabel.BoundingBox = (new Vector2(card.position.X+(card.position.Width/2 - stockCountLabel.GetSize().X / 2), card.position.Y+card.position.Height));
+                ServiceLocator.GameEntities.Add(stockCountLabel);
+                
             }
 
             stock.Add(card);
