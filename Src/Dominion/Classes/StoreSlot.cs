@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Dominion.Classes
 {
-    public class StoreSlot
+    public class StoreSlot : Entity, IRenderable
     {
         private Label _label;
         private List<Card> _cards;
         private Rectangle _boundingBox;
+        private Boolean _highlight;
+        private Boolean _selected;
 
         public string Name { get; set; }
         public int Row { get; set; }
 
+        // properties
         public Rectangle BoundingBox
         {
             get
@@ -26,6 +30,7 @@ namespace Dominion.Classes
                 _boundingBox = value;
             }
         }
+        public Boolean Visible { get { return HasCards; } }
         public Boolean HasCards { get { return _cards.Count > 0; } }
 
         public StoreSlot()
@@ -44,7 +49,6 @@ namespace Dominion.Classes
                 this.Name = card.Name;
             }
 
-            card.position = BoundingBox;
             _cards.Add(card);
             UpdateLabel();
         }
@@ -67,6 +71,27 @@ namespace Dominion.Classes
         {
             _label.Text = _cards.Count.ToString();
             _label.BoundingBox = (new Vector2(BoundingBox.X + BoundingBox.Width / 2 - _label.GetSize().X / 2, BoundingBox.Y + 100));
+        }
+
+        public void Draw(SpriteBatch batch)
+        {
+            if (HasCards == false) 
+                return; // don't draw
+
+            var texture = _cards[0].Image;
+
+            if (_highlight)
+            {
+                batch.Draw(texture, BoundingBox, Color.Silver);
+            }
+            else if (_selected)
+            {
+                batch.Draw(texture, BoundingBox, Color.Red);
+            }
+            else if (Visible)
+            {
+                batch.Draw(texture, BoundingBox, Color.White);
+            }
         }
     }
 }

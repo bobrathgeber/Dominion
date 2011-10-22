@@ -126,40 +126,6 @@ namespace Dominion
             }
         }
 
-        public IEnumerable<IGrouping<string, Card>>CardGroups
-        {
-            get
-            {
-                return stock.GroupBy(x => x.Name);
-            }
-        }
-
-
-        public List<Card> GetFirstCardInEachGroup()
-        {
-            var result = new List<Card>();
-
-            foreach (var group in stock.GroupBy(x => new { x.Name }))
-            {
-                result.Add(group.First());
-            }
-
-            return result;
-        }
-
-        public List<string> GetUniqueCardTypes()
-        {
-            var result = new List<string>();
-
-            foreach(var kvp in stock.ToDictionary(x => x.Name))
-            {
-                result.Add(kvp.Key);
-            }
-
-            return result;
-
-        }
-
         public Store()
         {
             CreateSlots();
@@ -208,9 +174,9 @@ namespace Dominion
               
                 var s = new StoreSlot();
                 s.Row = 0;
-
                 s.BoundingBox = box;
                 slots.Add(s);
+                ServiceLocator.GameEntities.Add(s);
             }
 
             // create 8 slots in row 2
@@ -221,9 +187,9 @@ namespace Dominion
 
                 var s = new StoreSlot();
                 s.Row = 1;
-
                 s.BoundingBox = box;
                 slots.Add(s);
+                ServiceLocator.GameEntities.Add(s);
             }
         }
 

@@ -259,11 +259,6 @@ namespace Dominion
             int PlayerCount = 1; //TEMPORARY!!*****
             store = new Store();
 
-            foreach (var card in store.stock)
-            {
-                _entities.Add(card);
-            }
-
             //adds players to game
             for (int i = 0; i < PlayerCount; i++)
             {

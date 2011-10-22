@@ -13,12 +13,8 @@ using Dominion.Classes;
 
 namespace Dominion
 {
-    public abstract class Card : Entity,
-        IRenderable
+    public abstract class Card
     {
-        private Boolean _highlight;
-        private Boolean _selected;
-        public Rectangle position;
         public Texture2D Image;
         protected Player owner;
 
@@ -31,10 +27,6 @@ namespace Dominion
             Name = n;
             Cost = c;
             owner = o;
-            _selected = false;
-            _highlight = false;
-            position = new Rectangle();
-            Visible = true;
         }
 
         public int Cost
@@ -76,35 +68,5 @@ namespace Dominion
             //move card from hand to discard
         }
 
-        public Boolean Visible { get; set; }
-
-        public void Location(int x, int y)
-        {
-            position.X = x;
-            position.Y = y;
-        }
-
-        public void Scale(int w, int h)
-        {
-            position.Width = w;
-            position.Height = h;
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (_highlight)
-            {
-                spriteBatch.Draw(Image, position, Color.Silver);
-            }
-            else if (_selected)
-            {
-                spriteBatch.Draw(Image, position, Color.Red);
-            }
-            else if (Visible)
-            {
-                spriteBatch.Draw(Image, position, Color.White);
-            }
-
-        }
     }
 }

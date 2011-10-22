@@ -8,12 +8,16 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Dominion.Classes
 {
     public class HandButton
-        : IInputObserver, IClickable, IRenderable
+        : Entity, IInputObserver, IClickable, IRenderable
     {
+        // fields
         private Card _card;
         private Texture2D _image;
-
         private Rectangle _boundingBox;
+        private Boolean _highlight;
+        private Boolean _selected;
+
+        // properties
         public Rectangle BoundingBox
         {
             get
@@ -25,32 +29,87 @@ namespace Dominion.Classes
                 _boundingBox = value;
             }
         }
-
-        public HandButton(Card card)
+        public Boolean Visible
         {
-            _card = card;
-            BoundingBox = new Rectangle();
-            _image = card.Image;
+            get
+            {
+                return HasCard;
+            }
+        }
+        public Boolean HasCard
+        {
+            get
+            {
+                return _card != null;
+            }
+        }
+        public Card Card
+        {
+            get
+            {
+                return _card;
+            }
+            set
+            {
+                _image = (value != null) ? value.Image : null;
+                _card = value;
+            }
         }
 
+        // ctor
+        public HandButton()
+        {
+            _selected = false;
+            _highlight = false;
+            BoundingBox = new Rectangle();
+        }
+
+        // methods
+        public void RemoveCard()
+        {
+            Card = null;
+        }
         public void Click(Player p)
         {
             p.Play(_card);
         }
 
-        public void Click()
+        public void Location(int x, int y)
         {
-            throw new NotImplementedException();
+            _boundingBox.X = x;
+            _boundingBox.Y = y;
         }
 
-        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
+        public void Scale(int w, int h)
+        {
+            _boundingBox.Width = w;
+            _boundingBox.Height = h;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (_highlight)
+            {
+                spriteBatch.Draw(_card.Image, BoundingBox, Color.Silver);
+            }
+            else if (_selected)
+            {
+                spriteBatch.Draw(_card.Image, BoundingBox, Color.Red);
+            }
+            else if (Visible)
+            {
+                spriteBatch.Draw(_card.Image, BoundingBox, Color.White);
+            }
+
+        }
+        public void Click()
         {
             throw new NotImplementedException();
         }
 
         public void Update(Controller controller)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
