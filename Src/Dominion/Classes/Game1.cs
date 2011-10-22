@@ -74,10 +74,7 @@ namespace Dominion
             //test player
             players = new List<Player> ();
 
-            _entities = new List<Entity>();
-
-
-           
+            _entities = new List<Entity>();           
 
           //LEAVE THIS LAST!!!
             base.Initialize();
@@ -222,7 +219,11 @@ namespace Dominion
                 spriteBatch.DrawString(font, "buys: " + players[currentPlayer].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 endTurnButton.Draw();
                 drawButtons(spriteBatch);
-                             
+
+                foreach (var renderable in _entities.OfType<IRenderable>())
+                {
+                    renderable.Draw(spriteBatch);
+                } 
             }
             else if (gameState == 3)
             {
@@ -232,7 +233,9 @@ namespace Dominion
             spriteBatch.Draw(this.mousePointer, this.mousePosition, Color.White);
             
             spriteBatch.End();
+
             // TODO: Add your drawing code here
+
 
             base.Draw(gameTime);
         }
@@ -256,6 +259,10 @@ namespace Dominion
             int PlayerCount = 1; //TEMPORARY!!*****
             store = new Store();
 
+            foreach (var card in store.stock)
+            {
+                _entities.Add(card);
+            }
 
             //adds players to game
             for (int i = 0; i < PlayerCount; i++)

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Text;
+using Dominion.Classes;
 
 namespace Dominion
 {
@@ -17,7 +18,7 @@ namespace Dominion
 
         public List<Card> deck;
         public List<Card> discard;
-        public List<Card> hand;
+        public Hand hand;
 
         public bool canSelectHand;
         public bool canSelectStore;
@@ -31,7 +32,7 @@ namespace Dominion
         {
             deck = new List<Card>();
             discard = new List<Card>();
-            hand = new List<Card>();
+            hand = new Hand();
             canSelectHand = false;
             canSelectStore = false;
         }
@@ -77,8 +78,6 @@ namespace Dominion
                 var card = deck[0];
                 deck.RemoveAt(0);
 
-                card.position.X = ((hand.Count * 140) + 20);
-                card.position.Y = 600;
                 hand.Add(card);
             }
         }
@@ -174,11 +173,6 @@ namespace Dominion
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //draw cards in hand
-            for (int i = 0; i < hand.Count; i++)
-            {
-                hand[i].Draw(spriteBatch);
-            }
         }
 
         public void Buy(Card c, Store s)

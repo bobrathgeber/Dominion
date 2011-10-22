@@ -9,7 +9,6 @@ namespace Dominion.Classes
 {
     interface IRenderable
     {
-        Rectangle BoundingBox { get; set; }
         void Draw(SpriteBatch batch);
     }
 }

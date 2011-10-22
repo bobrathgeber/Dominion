@@ -8,7 +8,7 @@ namespace Dominion.Classes
     /// <summary>
     /// A base class for us to hook on global functionality
     /// </summary>
-    class Entity
+    public class Entity
     {
     }
 }

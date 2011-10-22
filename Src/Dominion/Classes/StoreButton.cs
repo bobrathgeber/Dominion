@@ -13,24 +13,30 @@ namespace Dominion.Classes
     {
         private Card _card;
         private Store _store;
-        private Rectangle _boundingBox;
         private string _text;
         private Vector2 _textLocation;
         private SpriteFont _font;
         private Texture2D _image;
+        private Rectangle _boundingBox;
 
         public StoreButton(Store store, Card card, SpriteFont font)
         {
             _card = card;
             _store = store;
-            _boundingBox = new Rectangle();
+            BoundingBox = new Rectangle();
             _image = card.Image;
             _font = font;
         }
 
-        public Rectangle BoundingBox { 
-            get { 
-                return _boundingBox; 
+        public Rectangle BoundingBox 
+        { 
+            get 
+            {
+                return _boundingBox;
+            }
+            set
+            {
+                _boundingBox = value;
             }
         }
 
@@ -67,8 +73,8 @@ namespace Dominion.Classes
                 _text = value;
                 Vector2 size = _font.MeasureString(_text);
                 _textLocation = new Vector2();
-                _textLocation.Y = _boundingBox.Y + ((_boundingBox.Height / 2) - (size.Y / 2)) + 10;
-                _textLocation.X = _boundingBox.X + ((_boundingBox.Width / 5));
+                _textLocation.Y = BoundingBox.Y + ((BoundingBox.Height / 2) - (size.Y / 2)) + 10;
+                _textLocation.X = BoundingBox.X + ((BoundingBox.Width / 5));
             }
         }
 
@@ -82,7 +88,7 @@ namespace Dominion.Classes
             //}
             //else
             //{
-                batch.Draw(_image, _boundingBox, Color.White);
+                batch.Draw(_image, BoundingBox, Color.White);
             //}
             //if (_text != null)
             //{
@@ -92,7 +98,8 @@ namespace Dominion.Classes
 
         public void Update(Controller controller)
         {
-            InteractionManager.ObserveAndTriggerClick(controller, this);
+            if (controller.HasClicked(this))
+                this.Click(controller.Player);               
         }
     }
 }
