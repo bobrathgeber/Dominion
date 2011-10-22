@@ -141,14 +141,14 @@ namespace Dominion
             //check game mode ***UPDATE LATER***
             if (true)
             {
-                AddMany(new MoatCard(null), 10);
-                AddMany(new VillageCard(null), 10);
-                AddMany(new WoodcutterCard(null), 10);
-                AddMany(new MilitiaCard(null), 10);
-                AddMany(new SmithyCard(null), 10);
-                AddMany(new MarketCard(null), 10);
-                AddMany(new EstateCard(null), 10);
-                AddMany(new EstateCard(null), 10);
+                AddMany(() => new MoatCard(null), 10);
+                AddMany(() => new VillageCard(null), 10);
+                AddMany(() => new WoodcutterCard(null), 10);
+                AddMany(() => new MilitiaCard(null), 10);
+                AddMany(() => new SmithyCard(null), 10);
+                AddMany(() => new MarketCard(null), 10);
+                AddMany(() => new EstateCard(null), 10);
+                AddMany(() => new EstateCard(null), 10);
 
                 //stock.Add(c = new CellarCard(null));
                 //stock.Add(c = new WorkshopCard(null));
@@ -161,19 +161,19 @@ namespace Dominion
 
         private void resetTreasureAndVP()
         {
-            AddMany(new EstateCard(null), 24);
-            AddMany(new DuchyCard(null), 12);
-            AddMany(new ProvinceCard(null), 12);
-            AddMany(new CopperCard(null), 60);
-            AddMany(new SilverCard(null), 40);
-            AddMany(new GoldCard(null), 30);
+            AddMany(() => new EstateCard(null), 24);
+            AddMany(() => new DuchyCard(null), 12);
+            AddMany(() => new ProvinceCard(null), 12);
+            AddMany(() => new CopperCard(null), 60);
+            AddMany(() => new SilverCard(null), 40);
+            AddMany(() => new GoldCard(null), 30);
         }
 
-        private void AddMany(Card c, int amount)
+        private void AddMany(Func<Card> action, int amount)
         {
             for (var i = 0; i < amount; i++)
             {
-                stock.Add(c);
+                stock.Add(action.Invoke());
             }
         }
     }
