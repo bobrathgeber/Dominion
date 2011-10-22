@@ -9,6 +9,7 @@ namespace Dominion.Classes
     static class ServiceLocator
     {
         public static ContentManager ContentManager;
+        public static List<Entity> GameEntities;
     }
 
 }

@@ -34,7 +34,7 @@ namespace Dominion
             _selected = false;
             _highlight = false;
             position = new Rectangle();
-            Visible = false;
+            Visible = true;
         }
 
         public int Cost
@@ -77,6 +77,18 @@ namespace Dominion
         }
 
         public Boolean Visible { get; set; }
+
+        public void Location(int x, int y)
+        {
+            position.X = x;
+            position.Y = y;
+        }
+
+        public void Scale(int w, int h)
+        {
+            position.Width = w;
+            position.Height = h;
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {

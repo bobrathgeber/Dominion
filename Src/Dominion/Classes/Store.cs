@@ -18,6 +18,7 @@ namespace Dominion
         public List<int> stockAmount;
         public Player currentPlayer;
         public BuyCardAction bAction;
+        public List<Label> Labels;
 
         public Player CurrentPlayer
         {
@@ -85,6 +86,36 @@ namespace Dominion
             return false;
         }
 
+        public void AddCard(Card card)
+        {
+            var existing_stack_top_card = stock.FirstOrDefault(x => x.Name == card.Name);
+
+            if (existing_stack_top_card != null)
+                card.position = existing_stack_top_card.position;
+            else
+            {
+                var groups = stock.GroupBy(x => x.Name);
+                var group_count = groups.Count(); 
+                
+                card.Scale(card.Image.Width / 2, card.Image.Height / 2);
+
+                if (group_count >= 8)
+                    card.Location(40 + ((group_count - 8) * card.Image.Width / 2), 250);
+                else
+                    card.Location(40 + (group_count * card.Image.Width / 2), 100);
+            }
+
+            stock.Add(card);
+        }
+
+        //public void UpdateLabels()
+        //{
+        //    foreach (var lbl in Labels)
+        //    {
+        //        lbl.Text = stock.Count(x => x.Name == sb.CardName).ToString();
+        //    }
+        //}
+        
         public void buyCard(Player p, Card c)
         {
             for(int i = stock.Count-1; i>=0; i--)
@@ -173,7 +204,7 @@ namespace Dominion
         {
             for (var i = 0; i < amount; i++)
             {
-                stock.Add(action.Invoke());
+                AddCard(action.Invoke());
             }
         }
     }

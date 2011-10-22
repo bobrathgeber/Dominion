@@ -74,7 +74,8 @@ namespace Dominion
             //test player
             players = new List<Player> ();
 
-            _entities = new List<Entity>();           
+            _entities = new List<Entity>();
+            ServiceLocator.GameEntities = _entities;
 
           //LEAVE THIS LAST!!!
             base.Initialize();
@@ -296,25 +297,6 @@ namespace Dominion
             currentPlayer = 0;
             bAction.player = (players[currentPlayer]);
 
-            GenerateStoreButtons();
-        }
-
-        public void GenerateStoreButtons()
-        {
-            var cards = store.GetFirstCardInEachGroup();
-            for (int i = 0; i < cards.Count; i++)
-            {
-                var sb = new StoreButton(store, cards[i], font);
-                if (i > 8)
-                    sb.Location((40 + ((i - 9) * cards[i].Image.Width / 2)), 250);
-                else
-                    sb.Location((40 + (i * cards[i].Image.Width / 2)), 100);
-
-                sb.Text = store.CardGroups.Count(x => x.Key == sb.CardName).ToString();
-                sb.Scale(cards[i].Image.Width / 2, cards[i].Image.Height / 2);
-
-                _entities.Add(sb);
-            }
         }
 
         public void drawButtons(SpriteBatch batch)

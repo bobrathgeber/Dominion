@@ -15,17 +15,16 @@ namespace Dominion.Classes
         private Store _store;
         private string _text;
         private Vector2 _textLocation;
-        private SpriteFont _font;
+        
         private Texture2D _image;
         private Rectangle _boundingBox;
 
-        public StoreButton(Store store, Card card, SpriteFont font)
+        public StoreButton(Store store, Card card)
         {
             _card = card;
             _store = store;
             BoundingBox = new Rectangle();
             _image = card.Image;
-            _font = font;
         }
 
         public Rectangle BoundingBox 
@@ -48,35 +47,13 @@ namespace Dominion.Classes
             }
         }
 
-        public void Location(int x, int y)
-        {
-            _boundingBox.X = x;
-            _boundingBox.Y = y;
-        }
-
-        public void Scale(int w, int h)
-        {
-            _boundingBox.Width = w;
-            _boundingBox.Height = h;
-        }
 
         public void Click(Player p)
         {
             p.Buy(_card, _store);
         }
 
-        public string Text
-        {
-            get { return _text; }
-            set
-            {
-                _text = value;
-                Vector2 size = _font.MeasureString(_text);
-                _textLocation = new Vector2();
-                _textLocation.Y = BoundingBox.Y + ((BoundingBox.Height / 2) - (size.Y / 2)) + 10;
-                _textLocation.X = BoundingBox.X + ((BoundingBox.Width / 5));
-            }
-        }
+
 
         public void Draw(SpriteBatch batch)
         {
@@ -90,10 +67,7 @@ namespace Dominion.Classes
             //{
                 batch.Draw(_image, BoundingBox, Color.White);
             //}
-            //if (_text != null)
-            //{
-            //    batch.DrawString(_font, _text, _textLocation, Color.White);
-            //}
+
         }
 
         public void Update(Controller controller)

@@ -130,6 +130,7 @@
     <Compile Include="Classes\IRenderable.cs" />
     <Compile Include="Classes\IInputObserver.cs" />
     <Compile Include="Classes\InteractionManager.cs" />
+    <Compile Include="Classes\Label.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Cards\ProvinceCard.cs" />
     <Compile Include="Classes\Services.cs" />
