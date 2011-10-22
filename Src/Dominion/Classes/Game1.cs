@@ -298,12 +298,5 @@ namespace Dominion
 
         }
 
-        public void drawButtons(SpriteBatch batch)
-        {
-            foreach(var button in _entities.OfType<StoreButton>())
-            {
-                button.Draw(batch);
-            }
-        }
     }
 }
