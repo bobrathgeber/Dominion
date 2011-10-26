@@ -19,10 +19,10 @@ namespace Dominion.Classes
     /// </remarks>
     public class InteractionManager
     {
-        public static void TriggerClick(Controller controller, IClickable clickable)
-        {
-            clickable.Click(controller.Player);
-        }
+        //public static void TriggerClick(Controller controller, IClickable clickable)
+        //{
+        //    clickable.Click(controller.Player);
+        //}
 
         //public static void ObserveAndTriggerHover(Controller controller, IHoverable hoverable)
         //{
