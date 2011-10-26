@@ -16,17 +16,15 @@ namespace Dominion
     public abstract class Card
     {
         public Texture2D Image;
-        protected Player owner;
 
         protected int cost;
         protected string name;
         protected int _VP;
         
-        public Card(string n, int c, Player o)
+        public Card(string n, int c)
         {
             Name = n;
             Cost = c;
-            owner = o;
         }
 
         public int Cost
@@ -48,7 +46,7 @@ namespace Dominion
 
         protected void LoadTexture(string path)
         {
-            var manager = ServiceLocator.ContentManager;
+            var manager = Registry.ContentManager;
             Image = manager.Load<Texture2D>(path);
         }
 
@@ -63,7 +61,7 @@ namespace Dominion
             return Name;
         }
 
-        public virtual void play()
+        public virtual void play(Player p)
         {
             //move card from hand to discard
         }

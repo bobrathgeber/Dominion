@@ -15,19 +15,19 @@ namespace Dominion.Classes
     class SmithyCard : Card
     {
         //CONSTR
-        public SmithyCard(Player Owner)
-            : base("Smithy", 4, Owner)
+        public SmithyCard()
+            : base("Smithy", 4)
         {
             this.LoadTexture("images/smithy");
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            if (owner.Actions > 0)
+            if (p.Actions > 0)
             {
-                owner.Actions -= 1;
-                owner.pickupCard(3);
-                owner.moveCard(this, owner.hand, owner.discard);
+                p.Actions -= 1;
+                p.pickupCard(3);
+                p.moveCard(this, p.hand, p.discard);
             }
         }
     }

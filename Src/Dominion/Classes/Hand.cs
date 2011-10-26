@@ -27,7 +27,7 @@ namespace Dominion.Classes
                 var hb = new HandButton();
                 hb.BoundingBox = box;
 
-                ServiceLocator.GameEntities.Add(hb);
+                Registry.GameEntities.Add(hb);
                 _buttons.Add(hb);
             }
         }

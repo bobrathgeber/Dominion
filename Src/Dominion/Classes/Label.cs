@@ -21,7 +21,7 @@ namespace Dominion.Classes
 
         public Label(string fontName)
         {
-            _font = ServiceLocator.ContentManager.Load<SpriteFont>(fontName);
+            _font = Registry.ContentManager.Load<SpriteFont>(fontName);
             _text = "";
         }
 

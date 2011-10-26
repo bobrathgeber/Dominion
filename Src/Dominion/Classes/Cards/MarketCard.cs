@@ -15,20 +15,20 @@ namespace Dominion.Classes
     class MarketCard : Card
     {
         //CONSTR
-        public MarketCard(Player Owner)
-            : base("Market", 5, Owner)
+        public MarketCard()
+            : base("Market", 5)
         {
             this.LoadTexture("images/market");
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            if (owner.Actions > 0)
+            if (p.Actions > 0)
             {
-                owner.Buys += 1;
-                owner.Coins += 1;
-                owner.pickupCard(1);
-                owner.moveCard(this, owner.hand, owner.discard);
+                p.Buys += 1;
+                p.Coins += 1;
+                p.pickupCard(1);
+                p.moveCard(this, p.hand, p.discard);
             }
         }
     }

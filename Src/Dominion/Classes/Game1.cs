@@ -31,8 +31,7 @@ namespace Dominion
         Texture2D backgroundTexture;
         Store store;
         List<Player> players;
-        public int currentPlayer;
-        List<StoreButton> StoreButtons;
+        public int currentPlayerIndex;
 
         SpriteFont font;
         Texture2D coinIcon;
@@ -62,7 +61,7 @@ namespace Dominion
 
         protected override void Initialize()
         {
-            ServiceLocator.ContentManager = this.Content;
+            Registry.ContentManager = this.Content;
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 800;
             //IsMouseVisible = true;
@@ -75,7 +74,7 @@ namespace Dominion
             players = new List<Player> ();
 
             _entities = new List<Entity>();
-            ServiceLocator.GameEntities = _entities;
+            Registry.GameEntities = _entities;
 
           //LEAVE THIS LAST!!!
             base.Initialize();
@@ -120,6 +119,15 @@ namespace Dominion
             // TODO: Unload any non ContentManager content here
         }
 
+        private Player CurrentPlayer
+        {
+            get
+            {
+                return players[currentPlayerIndex];
+            }
+             
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -148,6 +156,11 @@ namespace Dominion
             {
                 _controller.UpdateState();
 
+                foreach (var ss in _entities.OfType<StoreSlot>())
+                {
+                    //players[currentPlayerIndex].buy
+                }
+
                 // detect controller events
                 foreach (var inputObserver in _entities.OfType<IInputObserver>())
                 {
@@ -169,9 +182,9 @@ namespace Dominion
 
         private void drawResults()
         {            
-            int deckSize = players[currentPlayer].getTotalCards();
-            int totalVP = players[currentPlayer].getVP();
-            string text = "Player " + currentPlayer.ToString() + " : You won! You have " + deckSize.ToString() + 
+            int deckSize = players[currentPlayerIndex].getTotalCards();
+            int totalVP = players[currentPlayerIndex].getVP();
+            string text = "Player " + currentPlayerIndex.ToString() + " : You won! You have " + deckSize.ToString() + 
                 " cards in your deck and " + totalVP.ToString() + " VICTORY POINTS!";
             Vector2 size = font.MeasureString(text);
             Vector2 textLocation = new Vector2();
@@ -185,14 +198,6 @@ namespace Dominion
             if (store.checkEndGame())
             {
                 gameState = 3;
-            }
-        }
-
-        public Player CurrentPlayer
-        {
-            get
-            {
-                return players[currentPlayer];
             }
         }
 
@@ -211,13 +216,13 @@ namespace Dominion
             }
             else if (gameState == 2)
             {
-                CurrentPlayer.Draw(spriteBatch);
+                //CurrentPlayer.Draw(spriteBatch);
 
                 // Draw the infobar
                 spriteBatch.Draw(coinIcon, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+5, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, ": " + players[currentPlayer].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, "actions: " + players[currentPlayer].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
-                spriteBatch.DrawString(font, "buys: " + players[currentPlayer].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, ": " + players[currentPlayerIndex].Coins, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+33, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "actions: " + players[currentPlayerIndex].Actions, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X + 120, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
+                spriteBatch.DrawString(font, "buys: " + players[currentPlayerIndex].Buys, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X+270, GraphicsDevice.Viewport.TitleSafeArea.Y), Color.White);
                 endTurnButton.Draw();
 
                 foreach (var renderable in _entities.OfType<IRenderable>())
@@ -263,19 +268,20 @@ namespace Dominion
             for (int i = 0; i < PlayerCount; i++)
             {
                 Player p = new Player();
+                p.Store = store;
                 _controller = new Controller(p);
                 p.Buys = 10;
                 p.Coins = 6;
                 for (int j = 0; j < 7; j++)
                 {
-                    CopperCard cc = new CopperCard(p);
-                    p.Buy(cc, store);
+                    CopperCard cc = new CopperCard();
+                    store.buyCard(p, cc);
                 }
 
                 for (int k = 0; k < 3; k++)
                 {
 
-                    EstateCard ec = new EstateCard(p);
+                    EstateCard ec = new EstateCard();
                     store.buyCard(p, ec);                    
                 }
 
@@ -288,8 +294,8 @@ namespace Dominion
                 p.shuffleDeck();
                 p.endTurn();
             }            
-            currentPlayer = 0;
-            bAction.player = (players[currentPlayer]);
+            currentPlayerIndex = 0;
+            bAction.player = (players[currentPlayerIndex]);
 
         }
 

@@ -15,22 +15,16 @@ namespace Dominion.Classes
     class SilverCard : Card
     {
         //CONSTR
-        public SilverCard(Player Owner)
-            : base("Silver", 3, Owner)
+        public SilverCard()
+            : base("Silver", 3)
         {
             this.LoadTexture("images/silver");
-            owner = Owner;
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            owner.Coins += 2;
-            owner.moveCard(this, owner.hand, owner.discard);
-        }
-
-        public void setOwner(Player p)
-        {
-            owner = p;
+            p.Coins += 2;
+            p.moveCard(this, p.hand, p.discard);
         }
     }
 }

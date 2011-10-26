@@ -119,6 +119,7 @@
     <Compile Include="Classes\Cards\GoldCard.cs" />
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\GameManager.cs" />
     <Compile Include="Classes\Hand.cs" />
     <Compile Include="Classes\HandButton.cs" />
     <Compile Include="Classes\IButtonAction.cs" />
@@ -139,7 +140,6 @@
     <Compile Include="Classes\Cards\VillageCard.cs" />
     <Compile Include="Classes\Cards\WoodcutterCard.cs" />
     <Compile Include="Classes\SmartMouse.cs" />
-    <Compile Include="Classes\StoreButton.cs" />
     <Compile Include="Classes\StoreSlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Program.cs" />

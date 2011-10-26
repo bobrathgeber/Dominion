@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Dominion.Classes
 {
-    public class StoreSlot : Entity, IRenderable
+    public class StoreSlot : Entity, IRenderable, IInputObserver, IClickable
     {
         private Label _label;
         private List<Card> _cards;
@@ -15,6 +15,7 @@ namespace Dominion.Classes
         private Boolean _highlight;
         private Boolean _selected;
 
+        public Boolean Enabled { get; set; }
         public string Name { get; set; }
         public int Row { get; set; }
 
@@ -38,7 +39,8 @@ namespace Dominion.Classes
             _label = new Label();
             _cards = new List<Card>();
             _boundingBox = new Rectangle();
-            ServiceLocator.GameEntities.Add(_label);
+            Registry.GameEntities.Add(_label);
+            Enabled = true;
         }
 
         public void AddCard(Card card)
@@ -62,7 +64,7 @@ namespace Dominion.Classes
             if (_cards.Count == 0)
             {
                 // that was the last card, reset the name
-                this.Name = "";
+                this.Name = string.Empty;
             }
             return c;
         }
@@ -91,6 +93,20 @@ namespace Dominion.Classes
             else if (Visible)
             {
                 batch.Draw(texture, BoundingBox, Color.White);
+            }
+        }
+
+        public Card TopCard()
+        {
+            return _cards.Last();
+        }
+
+
+        public void Update(Controller controller)
+        {
+            if (controller.HasClicked(this))
+            {
+                controller.Player.BuyCard(TopCard());
             }
         }
     }

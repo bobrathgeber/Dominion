@@ -15,15 +15,14 @@ namespace Dominion.Classes
     class ProvinceCard : Card
     {
         //CONSTR
-        public ProvinceCard(Player Owner)
-            : base("Province", 0, Owner)
+        public ProvinceCard()
+            : base("Province", 0)
         {
             this.LoadTexture("images/province");
             _VP = 6;
-            owner = Owner;
         }
 
-        public override void play()
+        public override void play(Player p)
         {
 
         }

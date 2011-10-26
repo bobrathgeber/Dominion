@@ -15,20 +15,20 @@ namespace Dominion.Classes
     class WoodcutterCard : Card
     {
         //CONSTR
-        public WoodcutterCard(Player Owner)
-            : base("Woodcutter", 3, Owner)
+        public WoodcutterCard()
+            : base("Woodcutter", 3)
         {
             this.LoadTexture("images/woodcutter");
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            if (owner.Actions > 0)
+            if (p.Actions > 0)
             {
-                owner.Actions -= 1;
-                owner.Buys += 1;
-                owner.Coins += 2;
-                owner.moveCard(this, owner.hand, owner.discard);
+                p.Actions -= 1;
+                p.Buys += 1;
+                p.Coins += 2;
+                p.moveCard(this, p.hand, p.discard);
             }
         }
     }

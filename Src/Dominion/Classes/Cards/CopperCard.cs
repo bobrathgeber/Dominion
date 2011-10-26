@@ -15,17 +15,16 @@ namespace Dominion.Classes
     class CopperCard : Card
     {
         //CONSTR
-        public CopperCard(Player Owner)
-            : base("Copper", 0, Owner)
+        public CopperCard()
+            : base("Copper", 0)
         {
             this.LoadTexture("images/copper");
-            owner = Owner;
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            owner.Coins +=1;
-            owner.moveCard(this, owner.hand, owner.discard);
+            p.Coins += 1;
+            p.moveCard(this, p.hand, p.discard);
         }
     }
 }

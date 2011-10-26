@@ -102,14 +102,16 @@ namespace Dominion.Classes
             }
 
         }
-        public void Click()
-        {
-            throw new NotImplementedException();
-        }
 
         public void Update(Controller controller)
         {
-            //throw new NotImplementedException();
+            if (Card == null)
+                return;
+
+            if (controller.HasClicked(this))
+            {
+                controller.Player.Play(this.Card);
+            }
         }
     }
 }

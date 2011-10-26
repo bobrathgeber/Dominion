@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Dominion.Classes
 {
-    static class ServiceLocator
+    static class Registry
     {
         public static ContentManager ContentManager;
         public static List<Entity> GameEntities;

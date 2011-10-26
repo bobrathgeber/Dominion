@@ -15,19 +15,19 @@ namespace Dominion.Classes
     class MilitiaCard : Card
     {
         //CONSTR
-        public MilitiaCard(Player Owner)
-            : base("Militia", 3, Owner)
+        public MilitiaCard()
+            : base("Militia", 3)
         {
             this.LoadTexture("images/militia");
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            if (owner.Actions > 0)
+            if (p.Actions > 0)
             {
-                owner.Actions -= 1;
-                owner.Coins += 2;
-                owner.moveCard(this, owner.hand, owner.discard);
+                p.Actions -= 1;
+                p.Coins += 2;
+                p.moveCard(this, p.hand, p.discard);
             }
         }
     }

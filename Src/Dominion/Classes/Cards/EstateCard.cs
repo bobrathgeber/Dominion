@@ -16,15 +16,14 @@ namespace Dominion.Classes
     {
 
         //CONSTR
-        public EstateCard(Player Owner)
-            : base("Estate", 2, Owner)
+        public EstateCard()
+            : base("Estate", 2)
         {
             this.LoadTexture("images/estate");
             _VP = 1;
-            owner = Owner;
         }
 
-        public override void play()
+        public override void play(Player p)
         {
             
         }

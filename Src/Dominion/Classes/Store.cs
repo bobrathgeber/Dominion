@@ -110,20 +110,24 @@ namespace Dominion
         //        lbl.Text = stock.Count(x => x.Name == sb.CardName).ToString();
         //    }
         //}
-        
+        //public Card findCard(string cardName)
+        //{
+            //return stock.find
+        //}
+
         public void buyCard(Player p, Card c)
         {
-            for(int i = stock.Count-1; i>=0; i--)
+            if (p.Buys > 0 && p.Coins >= c.Cost)
             {
-                if (stock[i].Name == c.Name && p.Buys > 0 && p.Coins >= c.Cost)
-                {
-                    p.addCardToDiscard(stock[i]);
-                    stock.RemoveAt(i);
-                    p.Buys -= 1;
-                    p.Coins -= c.Cost;
-                    return;                    
-                }                
-            }
+                slots.First(x => x.Name == c.Name).RemoveTopCard();
+                stock.Remove(c);
+
+                p.addCardToDiscard(c);
+
+                p.Buys -= 1;
+                p.Coins -= c.Cost;
+                return;                    
+            }                
         }
 
         public Store()
@@ -134,14 +138,14 @@ namespace Dominion
             //check game mode ***UPDATE LATER***
             if (true)
             {
-                AddMany(() => new MoatCard(null), 10);
-                AddMany(() => new VillageCard(null), 10);
-                AddMany(() => new WoodcutterCard(null), 10);
-                AddMany(() => new MilitiaCard(null), 10);
-                AddMany(() => new SmithyCard(null), 10);
-                AddMany(() => new MarketCard(null), 10);
-                AddMany(() => new EstateCard(null), 10);
-                AddMany(() => new EstateCard(null), 10);
+                AddMany(() => new MoatCard(), 10);
+                AddMany(() => new VillageCard(), 10);
+                AddMany(() => new WoodcutterCard(),10);
+                AddMany(() => new MilitiaCard(), 10);
+                AddMany(() => new SmithyCard(), 10);
+                AddMany(() => new MarketCard(), 10);
+                AddMany(() => new EstateCard(), 10);
+                AddMany(() => new EstateCard(), 10);
 
                 //stock.Add(c = new CellarCard(null));
                 //stock.Add(c = new WorkshopCard(null));
@@ -176,7 +180,7 @@ namespace Dominion
                 s.Row = 0;
                 s.BoundingBox = box;
                 slots.Add(s);
-                ServiceLocator.GameEntities.Add(s);
+                Registry.GameEntities.Add(s);
             }
 
             // create 8 slots in row 2
@@ -189,18 +193,18 @@ namespace Dominion
                 s.Row = 1;
                 s.BoundingBox = box;
                 slots.Add(s);
-                ServiceLocator.GameEntities.Add(s);
+                Registry.GameEntities.Add(s);
             }
         }
 
         private void resetTreasureAndVP()
         {
-            AddMany(() => new EstateCard(null), 24);
-            AddMany(() => new DuchyCard(null), 12);
-            AddMany(() => new ProvinceCard(null), 12);
-            AddMany(() => new CopperCard(null), 60);
-            AddMany(() => new SilverCard(null), 40);
-            AddMany(() => new GoldCard(null), 30);
+            AddMany(() => new EstateCard(), 24);
+            AddMany(() => new DuchyCard(), 12);
+            AddMany(() => new ProvinceCard(), 12);
+            AddMany(() => new CopperCard(), 60);
+            AddMany(() => new SilverCard(), 40);
+            AddMany(() => new GoldCard(), 30);
         }
 
         private void AddMany(Func<Card> action, int amount)

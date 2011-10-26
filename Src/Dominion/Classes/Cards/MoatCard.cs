@@ -16,19 +16,19 @@ namespace Dominion.Classes
     {
 
         //CONSTR
-        public MoatCard(Player Owner)
-            : base("Moat", 2, Owner)
+        public MoatCard()
+            : base("Moat", 2)
         {
             this.LoadTexture("images/moat");
         }
 
-        public override void play()
+        public override void play(Player p)
         {
-            if (owner.Actions > 0)
+            if (p.Actions > 0)
             {
-                owner.Actions -= 1;
-                owner.pickupCard(2);
-                owner.moveCard(this, owner.hand, owner.discard);
+                p.Actions -= 1;
+                p.pickupCard(2);
+                p.moveCard(this, p.hand, p.discard);
             }
         }
     }

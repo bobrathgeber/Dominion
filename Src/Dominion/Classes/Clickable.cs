@@ -8,7 +8,6 @@ namespace Dominion.Classes
 {
     public interface IClickable
     {
-        void Click(Player p);
         Rectangle BoundingBox { get; }
     }
 }

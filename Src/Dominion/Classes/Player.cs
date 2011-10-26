@@ -19,6 +19,7 @@ namespace Dominion
         public List<Card> deck;
         public List<Card> discard;
         public Hand hand;
+        public Store Store { get; set; }
 
         public bool canSelectHand;
         public bool canSelectStore;
@@ -57,7 +58,9 @@ namespace Dominion
 
         public void Play(Card c)
         {
-            //removes card @ cardPosition from hand
+            // TODO: this shouldn't be delegating to card
+
+            c.play(this);
         }
 
         public void pickupCard(int numberOfCards)
@@ -87,6 +90,11 @@ namespace Dominion
 
             //removes top card from deck
             //adds card to hand
+        }
+
+        public void BuyCard(Card c)
+        {
+            Store.buyCard(this, c);
         }
 
         public void shuffleDeck()
@@ -129,7 +137,7 @@ namespace Dominion
             return hand;
         }
 
-        public void moveCard(Card c, List<Card> origin, List<Card> destination)
+        public void moveCard(Card c, Hand origin, List<Card> destination)
         {
             destination.Add(c);
             origin.Remove(c);
@@ -175,9 +183,9 @@ namespace Dominion
         {
         }
 
-        public void Buy(Card c, Store s)
+        public void TryBuyCard(string cardName)
         {
-            s.buyCard(this, c);
+            //store.buyCard(this, c);
         }
     }
 }
