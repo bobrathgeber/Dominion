@@ -15,7 +15,7 @@ namespace Dominion.Classes
         {
             _buttons = new List<HandButton>();
 
-            var max_hand_size = 5;
+            var max_hand_size = 8;
             for(var i = 0; i < max_hand_size; i++)
             {
                 var box = new Rectangle();
@@ -42,6 +42,31 @@ namespace Dominion.Classes
             var slot = _buttons.Find(x => x.Card == card);
             slot.RemoveCard();
             base.Remove(card);
+            CondenseHand();
+        }
+        public void GenerateSlots()
+        {
+            var hand_size = this.Count;
+
+
+        }
+        public void CondenseHand()
+        {
+            var tempHand = new List<Card>();
+            foreach (HandButton b in _buttons)
+            {
+                if (b.HasCard)
+                {
+                    var tempCard = b.Card;
+                    b.RemoveCard();
+                    var open_slot = _buttons.First(x => x.HasCard == false);
+                    open_slot.Card = tempCard;
+                } 
+                
+                
+            }
+
+
         }
     }
 }
